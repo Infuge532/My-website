@@ -1,0 +1,70 @@
+import { Globe, ShieldCheck, Smartphone, Headphones } from "lucide-react";
+
+const services = [
+  {
+    icon: Globe,
+    title: "Custom Design",
+    desc: "Every site is built from scratch to match your brand. No cookie-cutter templates — just a site that feels like you.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Zero Infrastructure",
+    desc: "We handle hosting, domains, SSL, and deployments. You'll never need to touch a server or deal with technical setup.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile-First",
+    desc: "Your site looks and works perfectly on every device — phones, tablets, and desktops — right out of the box.",
+  },
+  {
+    icon: Headphones,
+    title: "Ongoing Support",
+    desc: "We don't disappear after launch. Updates, fixes, and friendly guidance are just a message away.",
+  },
+];
+
+export function Services() {
+  return (
+    <section id="services" className="relative py-24">
+      {/* Subtle top border gradient */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
+
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-16 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
+            What we do
+          </p>
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Everything your business needs online
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            From design to deployment, we cover every step so you can stay
+            focused on running your business.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="group relative rounded-xl border border-border/50 bg-card p-6 transition-all duration-300 hover:border-brand/40 hover:bg-card/80"
+            >
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-xl bg-brand/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="relative">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-brand/15 ring-1 ring-brand/20">
+                  <Icon className="h-5 w-5 text-brand" />
+                </div>
+                <h3 className="mb-2 font-semibold">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
+    </section>
+  );
+}
