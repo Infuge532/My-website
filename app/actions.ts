@@ -19,7 +19,7 @@ export async function submitContact(
     return { success: false, error: "Please fill in all required fields." };
   }
 
-  const res = await fetch("https://formspree.io/f/mnjrggwv", {
+  const res = await fetch("https://formspree.io/f/mredyoqz", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({ name, email, business, budget, message }),
