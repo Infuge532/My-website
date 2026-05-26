@@ -14,8 +14,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clearsite.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ClearSite — Affordable Website Design for Small Businesses",
-    template: "%s | ClearSite",
+    default: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
+    template: "%s | BuiltForSmallBiz",
   },
   description:
     "Professional, affordable websites for small businesses. No servers to manage, no hidden fees, and no technical headaches. Get a beautiful website live in 2–4 weeks.",
@@ -28,19 +28,19 @@ export const metadata: Metadata = {
     "no server hosting",
     "small business web developer",
   ],
-  authors: [{ name: "ClearSite" }],
+  authors: [{ name: "BuiltForSmallBiz" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "ClearSite",
-    title: "ClearSite — Affordable Website Design for Small Businesses",
+    siteName: "BuiltForSmallBiz",
+    title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
     description:
       "Professional, affordable websites for small businesses. No servers to manage, no hidden fees. Live in 2–4 weeks.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClearSite — Affordable Website Design for Small Businesses",
+    title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
     description:
       "Professional, affordable websites for small businesses. No servers to manage, no hidden fees. Live in 2–4 weeks.",
   },

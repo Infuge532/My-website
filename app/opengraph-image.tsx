@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "ClearSite — Affordable Website Design for Small Businesses";
+export const alt = "BuiltForSmallBiz — Affordable Website Design for Small Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -63,7 +63,7 @@ export default function Image() {
             C
           </div>
           <span style={{ color: "white", fontSize: 28, fontWeight: 700 }}>
-            ClearSite
+            BuiltForSmallBiz
           </span>
         </div>
 

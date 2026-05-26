@@ -34,7 +34,7 @@ export function Navbar() {
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
             C
           </div>
-          ClearSite
+          BuiltForSmallBiz
         </a>
 
         <div className="hidden md:flex items-center gap-8">

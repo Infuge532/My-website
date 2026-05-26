@@ -17,7 +17,7 @@ export function Footer() {
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
                 C
               </div>
-              ClearSite
+              BuiltForSmallBiz
             </a>
             <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
               Affordable, professional websites for small businesses. No
@@ -45,8 +45,8 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold">Contact</h4>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:hello@clearsite.dev" className="hover:text-foreground transition-colors">
-                  hello@clearsite.dev
+                <a href="mailto:eli@builtforsmallbiz.com" className="hover:text-foreground transition-colors">
+                  eli@builtforsmallbiz.com
                 </a>
               </li>
               <li>Mon–Fri, 9am–5pm</li>
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} ClearSite. All rights reserved.
+          &copy; {new Date().getFullYear()} BuiltForSmallBiz. All rights reserved.
         </div>
       </div>
     </footer>

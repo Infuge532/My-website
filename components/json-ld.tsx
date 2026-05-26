@@ -7,16 +7,16 @@ const schema = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "ClearSite",
+      name: "BuiltForSmallBiz",
       description:
         "Affordable, professional website design and development for small businesses.",
     },
     {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}/#organization`,
-      name: "ClearSite",
+      name: "BuiltForSmallBiz",
       url: siteUrl,
-      email: "hello@clearsite.dev",
+      email: "eli@builtforsmallbiz.com",
       description:
         "We build affordable, professional websites for small businesses. No servers to manage, no hidden fees, live in 2–4 weeks.",
       priceRange: "$$",

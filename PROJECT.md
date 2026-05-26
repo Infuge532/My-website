@@ -1,4 +1,4 @@
-# ClearSite — Project Overview
+# BuiltForSmallBiz — Project Overview
 
 A marketing/landing page for a web development business targeting small businesses. Built with Next.js 15, React 19, Tailwind CSS v4, and deployed to Netlify.
 
@@ -148,8 +148,8 @@ Set `NEXT_PUBLIC_SITE_URL` in the Netlify dashboard to the real domain before go
 ## Outstanding TODOs
 
 - [ ] Wire up real email delivery in `app/actions.ts` (Resend, SendGrid, or Postmark)
-- [ ] Replace placeholder name "ClearSite" with real business name across all files
-- [ ] Replace `hello@clearsite.dev` placeholder email in `components/footer.tsx`
+- [ ] Replace placeholder name "BuiltForSmallBiz" with real business name across all files
+- [ ] Replace `eli@builtforsmallbiz.com` placeholder email in `components/footer.tsx`
 - [ ] Add real favicon (replace `app/favicon.ico`)
 - [ ] Submit sitemap to Google Search Console after first deploy
 - [ ] Update `NEXT_PUBLIC_SITE_URL` in Netlify environment to real domain
