@@ -49,7 +49,6 @@ export function Footer() {
                   eli@builtforsmallbiz.com
                 </a>
               </li>
-              <li>Mon–Fri, 9am–5pm</li>
             </ul>
           </div>
         </div>
