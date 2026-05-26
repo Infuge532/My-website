@@ -19,8 +19,15 @@ export async function submitContact(
     return { success: false, error: "Please fill in all required fields." };
   }
 
-  // TODO: wire up a real email provider (Resend, SendGrid, Postmark, etc.)
-  console.log("New contact submission:", { name, email, business, budget, message });
+  const res = await fetch("https://formspree.io/f/mnjrggwv", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ name, email, business, budget, message }),
+  });
+
+  if (!res.ok) {
+    return { success: false, error: "Something went wrong. Please try again or email us directly." };
+  }
 
   return { success: true };
 }
