@@ -92,15 +92,12 @@ export function Contact() {
 
                 <div>
                   <label htmlFor="budget" className="mb-1.5 block text-sm font-medium">
-                    Budget
+                    Bundle
                   </label>
                   <select id="budget" name="budget" className={inputClass}>
-                    <option value="">Select a range</option>
-                    <option>Under $1,000</option>
-                    <option>$1,000 – $2,000</option>
-                    <option>$2,000 – $3,000</option>
-                    <option>$3,000+</option>
-                    <option>Not sure yet</option>
+                    <option value="">Select a bundle</option>
+                    <option>Complete Redesign</option>
+                    <option>New Website</option>
                   </select>
                 </div>
 
