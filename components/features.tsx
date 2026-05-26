@@ -14,7 +14,7 @@ const features = [
   {
     icon: Zap,
     title: "Fast Turnaround",
-    desc: "Most projects go live within 2–4 weeks. We move quickly and keep you in the loop every step of the way.",
+    desc: "Most projects go live within 1–2 weeks. We move quickly and keep you in the loop every step of the way.",
   },
 ];
 
