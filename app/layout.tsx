@@ -9,7 +9,7 @@ const jakartaSans = Plus_Jakarta_Sans({
   display: "swap", // prevents invisible text flash during font load
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clearsite.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://builtforsmallbiz.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
