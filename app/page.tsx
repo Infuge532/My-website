@@ -13,12 +13,14 @@ export default function Home() {
     <>
       <JsonLd />
       <Navbar />
-      <Hero />
-      <Services />
-      <Features />
-      <HowItWorks />
-      <Pricing />
-      <Contact />
+      <main>
+        <Hero />
+        <Services />
+        <Features />
+        <HowItWorks />
+        <Pricing />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

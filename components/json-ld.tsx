@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clearsite.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://builtforsmallbiz.com";
 
 const schema = {
   "@context": "https://schema.org",
@@ -21,36 +21,63 @@ const schema = {
         "We build affordable, professional websites for small businesses. No servers to manage, no hidden fees, live in 2–4 weeks.",
       priceRange: "$$",
       serviceType: "Web Design and Development",
-      areaServed: {
-        "@type": "Country",
-        name: "United States",
-      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Overland Park",
+          containedInPlace: { "@type": "State", name: "Kansas" },
+        },
+        {
+          "@type": "City",
+          name: "Kansas City",
+          containedInPlace: { "@type": "State", name: "Missouri" },
+        },
+        {
+          "@type": "City",
+          name: "Kansas City",
+          containedInPlace: { "@type": "State", name: "Kansas" },
+        },
+        {
+          "@type": "City",
+          name: "Olathe",
+          containedInPlace: { "@type": "State", name: "Kansas" },
+        },
+        {
+          "@type": "City",
+          name: "Leawood",
+          containedInPlace: { "@type": "State", name: "Kansas" },
+        },
+        {
+          "@type": "Country",
+          name: "United States",
+        },
+      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Website Packages",
         itemListElement: [
           {
             "@type": "Offer",
-            name: "Starter Website",
+            name: "Complete Redesign",
             description:
-              "Single-page website with contact form, mobile-responsive design, basic SEO, and 1 year of hosting.",
-            price: "599",
+              "Full visual redesign up to 5 pages, mobile-responsive update, contact form, basic on-page SEO, and SSL certificate.",
+            price: "499",
             priceCurrency: "USD",
           },
           {
             "@type": "Offer",
-            name: "Business Website",
+            name: "New Website",
             description:
-              "Up to 5 pages with Google Analytics, blog-ready setup, 1 year of priority support and hosting.",
-            price: "1299",
+              "Up to 10 pages with mobile-responsive design, contact form, basic on-page SEO, 1 year of hosting, and SSL certificate.",
+            price: "899",
             priceCurrency: "USD",
           },
           {
             "@type": "Offer",
-            name: "Growth Website",
+            name: "Premium Website",
             description:
-              "Up to 15 pages with booking or e-commerce integration, priority support, and monthly maintenance.",
-            price: "2499",
+              "Up to 15 pages with blog, booking or scheduling, gallery, newsletter integration, advanced SEO, Google Analytics, 1 year of hosting, and SSL certificate.",
+            price: "1399",
             priceCurrency: "USD",
           },
         ],

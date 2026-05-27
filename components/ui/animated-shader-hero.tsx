@@ -215,11 +215,13 @@ export function AnimatedShaderHero({
 
         {/* Headline */}
         <div className="text-center space-y-2 max-w-5xl">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-indigo-200 via-violet-300 to-purple-200 bg-clip-text text-transparent shader-fade-up shader-delay-200">
-            {headline.line1}
-          </h1>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-violet-300 via-indigo-400 to-blue-300 bg-clip-text text-transparent shader-fade-up shader-delay-400">
-            {headline.line2}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold shader-fade-up shader-delay-200">
+            <span className="block bg-gradient-to-r from-indigo-200 via-violet-300 to-purple-200 bg-clip-text text-transparent">
+              {headline.line1}
+            </span>
+            <span className="block bg-gradient-to-r from-violet-300 via-indigo-400 to-blue-300 bg-clip-text text-transparent shader-delay-400">
+              {headline.line2}
+            </span>
           </h1>
         </div>
 

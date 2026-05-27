@@ -20,13 +20,14 @@ export const metadata: Metadata = {
   description:
     "Professional, affordable websites for small businesses. No servers to manage, no hidden fees, and no technical headaches. Get a beautiful website live in 2–4 weeks.",
   keywords: [
-    "small business website design",
+    "web design Overland Park KS",
+    "web design Overland Park Kansas",
+    "small business website design Overland Park",
     "affordable web design",
     "website design for small business",
+    "small business web developer",
     "professional website",
     "web development",
-    "no server hosting",
-    "small business web developer",
   ],
   authors: [{ name: "BuiltForSmallBiz" }],
   openGraph: {

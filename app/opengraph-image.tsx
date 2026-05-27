@@ -103,7 +103,7 @@ export default function Image() {
             marginTop: 48,
           }}
         >
-          {["From $599", "No Lock-In", "Free Quote"].map((label) => (
+          {["From $499", "No Lock-In", "Free Quote"].map((label) => (
             <div
               key={label}
               style={{
