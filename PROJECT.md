@@ -155,3 +155,37 @@ Set `NEXT_PUBLIC_SITE_URL` in the Netlify dashboard to the real domain before go
 - [ ] Update `NEXT_PUBLIC_SITE_URL` in Netlify environment to real domain
 - [ ] Delete unused files: `components/ui/canvas.tsx`, `components/ui/hero.tsx`
 - [ ] Add real social links in footer (currently placeholder `#`)
+
+---
+
+## Changelog
+
+### v0.2.0 — Content & Pricing Overhaul
+
+#### Services Section (`components/services.tsx`)
+- Reordered cards: **Site Redesign → Custom Design → Mobile-First → Zero Infrastructure**
+- Renamed "Ongoing Support" → **"Site Redesign"**; swapped icon from `Headphones` to `Paintbrush`
+- Updated Site Redesign description: *"Got an outdated site that's hurting your credibility? We'll refresh your look and modernize the experience."*
+- Updated Custom Design description to open with *"Custom sites are built from scratch..."*
+- Updated section heading: **"Modern websites built for business growth"**
+
+#### Why Choose Us Section (`components/features.tsx`)
+- Updated heading: **"Premium design, small business pricing, fast turnaround."** (with gradient on last phrase)
+- Updated body paragraph to: *"You shouldn't need an enterprise budget to have a great website..."*
+- Replaced "50+ Small businesses helped" stat with **"48 hrs / Average response time"**
+
+#### How It Works Section (`components/how-it-works.tsx`)
+- Updated Step 02 description to emphasise rapid prototyping and real-time feedback
+- Fixed connector line between steps: changed `w-full` → `w-10` to stop the line bleeding through adjacent cards
+
+#### Pricing Section (`components/pricing.tsx`)
+- Expanded from 2 to **3 pricing tiers**; grid updated to `md:grid-cols-3 items-stretch`
+- Added sale pricing UI: strikethrough original price + branded "Save $X" badge
+- **Complete Redesign** (left): $499 ~~$649~~, save $150 — up to 5 pages, contact form
+- **New Website** (centre, Most Popular): $899 ~~$1,249~~, save $350 — static site, up to 10 pages
+- **Premium Website** (right): $1,399 ~~$1,749~~, save $350 — up to 15 pages, blog, booking, gallery, newsletter, analytics
+
+#### Logo & Branding
+- Added `public/logo.png` — processed from source PNG: flood-fill background removal, alpha-threshold tight crop, fully transparent background
+- **Navbar** (`components/navbar.tsx`): replaced "C" placeholder with logo image; uses `position: absolute` + left padding so logo never pushes nav links regardless of size; rendered at 52px height
+- **Footer** (`components/footer.tsx`): replaced "C" placeholder with same logo; rendered at 56px height inline with "BuiltForSmallBiz" text; description paragraph left-aligned below

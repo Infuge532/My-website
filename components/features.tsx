@@ -19,7 +19,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "50+", label: "Small businesses helped" },
+  { value: "48 hrs", label: "Average response time" },
   { value: "1-2 weeks", label: "Average turnaround" },
   { value: "$0", label: "Infrastructure cost to you" },
   { value: "100%", label: "Satisfaction guaranteed" },
@@ -39,13 +39,13 @@ export function Features() {
               Why choose us
             </p>
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-              Web development built{" "}
-              <span className="text-gradient">for small businesses</span>
+              Premium design, small business pricing,{" "}
+              <span className="text-gradient">fast turnaround.</span>
             </h2>
             <p className="mb-10 text-muted-foreground">
-              Most agencies are built for enterprise clients. We designed our
-              entire process specifically for small businesses that need real
-              results without an enterprise price tag.
+              You shouldn't need an enterprise budget to have a great website.
+              We deliver the quality you'd expect from a big agency — without
+              the bloated price tag.
             </p>
 
             <div className="space-y-7">

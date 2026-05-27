@@ -1,15 +1,15 @@
-import { Globe, ShieldCheck, Smartphone, Headphones } from "lucide-react";
+import { Globe, ShieldCheck, Smartphone, Paintbrush } from "lucide-react";
 
 const services = [
   {
-    icon: Globe,
-    title: "Custom Design",
-    desc: "Every site is built from scratch to match your brand. No cookie-cutter templates — just a site that feels like you.",
+    icon: Paintbrush,
+    title: "Site Redesign",
+    desc: "Got an outdated site that's hurting your credibility? We'll refresh your look and modernize the experience.",
   },
   {
-    icon: ShieldCheck,
-    title: "Zero Infrastructure",
-    desc: "We handle hosting, domains, SSL, and deployments. You'll never need to touch a server or deal with technical setup.",
+    icon: Globe,
+    title: "Custom Design",
+    desc: "Custom sites are built from scratch to match your brand. No cookie-cutter templates — just a site that feels like you.",
   },
   {
     icon: Smartphone,
@@ -17,9 +17,9 @@ const services = [
     desc: "Your site looks and works perfectly on every device — phones, tablets, and desktops — right out of the box.",
   },
   {
-    icon: Headphones,
-    title: "Ongoing Support",
-    desc: "We don't disappear after launch. Updates, fixes, and friendly guidance are just a message away.",
+    icon: ShieldCheck,
+    title: "Zero Infrastructure",
+    desc: "We handle hosting, domains, SSL, and deployments. You'll never need to touch a server or deal with technical setup.",
   },
 ];
 
@@ -35,7 +35,7 @@ export function Services() {
             What we do
           </p>
           <h2 className="text-3xl font-bold md:text-4xl">
-            Everything your business needs online
+            Modern websites built for business growth
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             From design to deployment, we cover every step so you can stay

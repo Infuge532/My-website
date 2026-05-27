@@ -14,9 +14,8 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <a href="#home" className="mb-4 flex items-center gap-2 font-bold text-lg">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
-                C
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="Logo" className="block h-14 w-auto flex-shrink-0" />
               BuiltForSmallBiz
             </a>
             <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
@@ -41,16 +40,6 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-4 text-sm font-semibold">Contact</h4>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li>
-                <a href="mailto:eli@builtforsmallbiz.com" className="hover:text-foreground transition-colors">
-                  eli@builtforsmallbiz.com
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div className="mt-10 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">

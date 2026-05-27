@@ -7,7 +7,7 @@ const steps = [
   {
     number: "02",
     title: "We design & build together",
-    desc: "We share designs and prototypes at every stage. You approve before we build anything, so there are never any surprises.",
+    desc: "Our rapid prototyping process means you see progress from day one. Review, give feedback, and watch changes happen live — so the final product is exactly what you envisioned.",
   },
   {
     number: "03",
@@ -42,7 +42,7 @@ export function HowItWorks() {
             <div key={number} className="relative">
               {/* Connector line between steps (desktop) */}
               {i < steps.length - 1 && (
-                <div className="absolute left-full top-8 hidden h-px w-full -translate-y-1/2 bg-gradient-to-r from-brand/30 to-transparent md:block" />
+                <div className="absolute left-full top-8 hidden h-px w-10 -translate-y-1/2 bg-gradient-to-r from-brand/30 to-transparent md:block" />
               )}
 
               <div className="mb-4 text-7xl font-black leading-none select-none text-gradient opacity-60">

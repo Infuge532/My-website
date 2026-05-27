@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { Mail, MessageSquare, CheckCircle2 } from "lucide-react";
+import { MessageSquare, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitContact } from "@/app/actions";
 
@@ -36,12 +36,6 @@ export function Contact() {
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-sm">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/15 ring-1 ring-brand/20">
-                  <Mail className="h-4 w-4 text-brand" />
-                </div>
-                <span>eli@builtforsmallbiz.com</span>
-              </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/15 ring-1 ring-brand/20">
                   <MessageSquare className="h-4 w-4 text-brand" />

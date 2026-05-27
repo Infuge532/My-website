@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Complete Redesign",
-    price: "$500",
+    price: "$499",
+    originalPrice: "$649",
+    savings: "Save $150",
     desc: "Give your existing website a fresh, modern look.",
     features: [
       "Full visual redesign",
-      "Up to 10 pages",
+      "Up to 5 pages",
       "Mobile-responsive update",
-      "Improved page speed",
+      "Contact form",
       "Basic on-page SEO",
       "SSL certificate",
     ],
@@ -19,8 +21,10 @@ const plans = [
   },
   {
     name: "New Website",
-    price: "$599",
-    desc: "A clean online presence for businesses just getting started.",
+    price: "$899",
+    originalPrice: "$1,249",
+    savings: "Save $350",
+    desc: "A clean static online presence for businesses just getting started.",
     features: [
       "Up to 10 pages",
       "Mobile-responsive design",
@@ -31,6 +35,26 @@ const plans = [
     ],
     cta: "Get started",
     highlighted: true,
+  },
+  {
+    name: "Premium Website",
+    price: "$1,399",
+    originalPrice: "$1,749",
+    savings: "Save $350",
+    desc: "A powerful, feature-rich website built to grow with your business.",
+    features: [
+      "Up to 15 pages",
+      "Blog / news section",
+      "Booking or appointment scheduling",
+      "Photo or video gallery",
+      "Newsletter signup integration",
+      "Advanced on-page SEO",
+      "Google Analytics integration",
+      "1 year of hosting included",
+      "SSL certificate",
+    ],
+    cta: "Get started",
+    highlighted: false,
   },
 ];
 
@@ -54,7 +78,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-2xl gap-8 md:grid-cols-2 items-start">
+        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3 items-stretch">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -78,12 +102,20 @@ export function Pricing() {
 
                 <div>
                   <h3 className="text-lg font-bold">{plan.name}</h3>
-                  <div className="mt-4 flex items-end gap-1">
+                  <div className="mt-4 flex items-end gap-2">
                     <span className={`text-4xl font-black ${plan.highlighted ? "text-gradient" : ""}`}>
                       {plan.price}
                     </span>
+                    {"originalPrice" in plan && (
+                      <span className="mb-1 text-sm text-muted-foreground line-through">{plan.originalPrice}</span>
+                    )}
                     <span className="mb-1 text-sm text-muted-foreground">one-time</span>
                   </div>
+                  {"savings" in plan && (
+                    <span className="mt-1 inline-block rounded-full bg-brand/15 px-2.5 py-0.5 text-xs font-semibold text-brand ring-1 ring-brand/20">
+                      {plan.savings}
+                    </span>
+                  )}
                   <p className="mt-2 text-sm text-muted-foreground">{plan.desc}</p>
                 </div>
 

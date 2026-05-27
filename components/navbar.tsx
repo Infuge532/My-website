@@ -30,10 +30,9 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#home" className="flex items-center gap-2 font-bold text-lg">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
-            C
-          </div>
+        <a href="#home" className="relative flex items-center font-bold text-lg pl-16">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Logo" style={{ height: '52px', width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }} />
           BuiltForSmallBiz
         </a>
 
