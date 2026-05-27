@@ -2,7 +2,7 @@
 
 A marketing/landing page for a web development business targeting small businesses. Built with Next.js 15, React 19, Tailwind CSS v4, and deployed to Netlify.
 
-**Live domain (placeholder):** `https://clearsite.dev`
+**Live domain (placeholder):** `https://builtforsmallbiz.com`
 **Stack:** Next.js 16 · React 19 · TypeScript · Tailwind v4 · shadcn/ui · Netlify
 
 ---
@@ -104,7 +104,7 @@ The hero (`components/ui/animated-shader-hero.tsx`) renders a full-viewport WebG
 - `app/sitemap.ts` — Auto-generated sitemap
 - `app/robots.ts` — Robots.txt
 - `components/json-ld.tsx` — Schema.org `ProfessionalService` + `WebSite` + all 3 pricing tiers as `Offer` entries
-- All URLs derived from `NEXT_PUBLIC_SITE_URL` env var (defaults to `https://clearsite.dev`)
+- All URLs derived from `NEXT_PUBLIC_SITE_URL` env var (defaults to `https://builtforsmallbiz.com`)
 
 ---
 
@@ -148,11 +148,8 @@ Set `NEXT_PUBLIC_SITE_URL` in the Netlify dashboard to the real domain before go
 ## Outstanding TODOs
 
 - [ ] Wire up real email delivery in `app/actions.ts` (Resend, SendGrid, or Postmark)
-- [ ] Replace placeholder name "BuiltForSmallBiz" with real business name across all files
-- [ ] Replace `eli@builtforsmallbiz.com` placeholder email in `components/footer.tsx`
 - [ ] Add real favicon (replace `app/favicon.ico`)
 - [ ] Submit sitemap to Google Search Console after first deploy
-- [ ] Update `NEXT_PUBLIC_SITE_URL` in Netlify environment to real domain
 - [ ] Delete unused files: `components/ui/canvas.tsx`, `components/ui/hero.tsx`
 - [ ] Add real social links in footer (currently placeholder `#`)
 

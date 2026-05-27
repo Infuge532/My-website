@@ -4,7 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  NEXT_PUBLIC_SITE_URL = "https://clearsite.dev"
+  NEXT_PUBLIC_SITE_URL = "https://builtforsmallbiz.com"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
