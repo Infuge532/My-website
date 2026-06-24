@@ -6,23 +6,28 @@ const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
+  display: "swap", // prevents invisible text flash during font load
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://builtforsmallbiz.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://clearsite.dev";
 
 export const metadata: Metadata = {
-  title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
-  description: "Affordable, professional websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, no monthly fees — you own everything.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Affordable Web Design for Small Businesses in Overland Park, KS | BuiltForSmallBiz",
+    template: "%s | BuiltForSmallBiz",
+  },
+  description:
+    "Professional, affordable websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, you own everything.",
   keywords: [
-    "web design Overland Park KS",
-    "web design Overland Park Kansas",
-    "small business website design Overland Park",
-    "affordable web design",
-    "website design for small business",
+    "affordable web design Overland Park",
+    "small business website Overland Park KS",
+    "cheap website design Kansas City",
+    "web design for small business KC",
+    "website redesign Kansas City",
     "small business web developer",
     "professional website",
-    "web development",
+    "no server hosting",
   ],
   authors: [{ name: "BuiltForSmallBiz" }],
   openGraph: {
@@ -30,13 +35,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "BuiltForSmallBiz",
-    title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
-    description: "Affordable, professional websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, no monthly fees — you own everything.",
+    title: "Affordable Web Design for Small Businesses in Overland Park, KS | BuiltForSmallBiz",
+    description:
+      "Professional, affordable websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, you own everything.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
-    description: "Affordable, professional websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, no monthly fees — you own everything.",
+    title: "Affordable Web Design for Small Businesses in Overland Park, KS | BuiltForSmallBiz",
+    description:
+      "Professional, affordable websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, you own everything.",
   },
   robots: {
     index: true,

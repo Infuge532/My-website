@@ -5,13 +5,13 @@ export function Hero() {
     <AnimatedShaderHero
       trustBadge={{
         icon: "✨",
-        text: "Websites made simple for small businesses",
+        text: "Serving small businesses in Overland Park & Kansas City",
       }}
       headline={{
-        line1: "Launch Your Business",
-        line2: "Into Orbit",
+        line1: "Affordable Web Design",
+        line2: "for Small Businesses",
       }}
-      subtitle="Affordable, professional websites for small businesses. We handle everything — no servers, no headaches, no hidden fees."
+      subtitle="Professional websites for small businesses in Overland Park, KS and the Kansas City area. One-time pricing, 1–2 week turnaround — you own everything."
       buttons={{
         primary: {
           text: "Get a Free Quote",

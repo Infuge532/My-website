@@ -1,8 +1,9 @@
 const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -11,15 +12,17 @@ export function Footer() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
             <a href="#home" className="mb-4 flex items-center gap-2 font-bold text-lg">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="Logo" className="block h-14 w-auto flex-shrink-0" />
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
+                C
+              </div>
               BuiltForSmallBiz
             </a>
             <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-              Affordable, professional websites for small businesses. No
+              Affordable, professional websites for small businesses in
+              Overland Park, KS and the greater Kansas City area. No
               servers, no headaches — just a site that works for you.
             </p>
           </div>
@@ -40,10 +43,42 @@ export function Footer() {
             </ul>
           </div>
 
+          <div>
+            <h4 className="mb-4 text-sm font-semibold">Services</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li>
+                <a href="/services/website-redesign-overland-park" className="hover:text-foreground transition-colors">
+                  Website Redesign
+                </a>
+              </li>
+              <li>
+                <a href="/services/new-business-website-kansas-city" className="hover:text-foreground transition-colors">
+                  New Business Website
+                </a>
+              </li>
+              <li>
+                <a href="/services/affordable-web-design-overland-park" className="hover:text-foreground transition-colors">
+                  Affordable Web Design
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-sm font-semibold">Contact</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li>
+                <a href="mailto:eli@builtforsmallbiz.com" className="hover:text-foreground transition-colors">
+                  eli@builtforsmallbiz.com
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-10 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} BuiltForSmallBiz. All rights reserved.
+          <p>&copy; {new Date().getFullYear()} BuiltForSmallBiz. All rights reserved.</p>
+          <p className="mt-1">Based in Overland Park, KS — serving small businesses across Kansas City</p>
         </div>
       </div>
     </footer>

@@ -21,19 +21,11 @@
       "Bash(curl -sI https://github.com/cli/cli/releases/latest)",
       "Bash(curl -L \"https://github.com/cli/cli/releases/download/v2.92.0/gh_2.92.0_macOS_amd64.tar.gz\" -o /tmp/gh.tar.gz)",
       "Bash(/tmp/gh_2.92.0_macOS_amd64/bin/gh --version)",
-      "Bash(npm install *)",
-      "Bash(npm run *)",
-      "Bash(echo \"PID: $!\")",
-      "Bash(curl -sf http://localhost:3000)",
-      "Bash(node *)",
-      "Bash(convert --version)",
-      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
-      "Bash(python3 -c \"import PIL\")",
-      "Bash(pip3 install *)",
-      "Bash(python3 -c \"from PIL import Image; print\\('PIL installed'\\)\")",
-      "Bash(python3 *)",
-      "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "WebFetch(domain:www.billingsspeech.com)",
+      "Bash(zip -r ~/Desktop/billingsspeech.zip billingsspeech/)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
