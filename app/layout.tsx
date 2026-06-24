@@ -12,11 +12,9 @@ const jakartaSans = Plus_Jakarta_Sans({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://builtforsmallbiz.com";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
-    template: "%s | BuiltForSmallBiz",
-  },
+  title: "BuiltForSmallBiz — Affordable Website Design for Small Businesses",
+  description: "Affordable, professional websites for small businesses in Overland Park & Kansas City. One-time pricing, 1–2 week turnaround, no monthly fees — you own everything.",
+};
   description:
     "Professional, affordable websites for small businesses. No servers to manage, no hidden fees, and no technical headaches. Get a beautiful website live in 2–4 weeks.",
   keywords: [
