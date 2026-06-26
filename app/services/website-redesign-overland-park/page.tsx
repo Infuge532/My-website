@@ -47,12 +47,12 @@ export default function WebsiteRedesignOverlandPark() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
-              <a href="/#contact">
+              <a href="/contact">
                 Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="/#pricing">See Pricing</a>
+              <a href="/pricing">See Pricing</a>
             </Button>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function WebsiteRedesignOverlandPark() {
           </p>
           <div className="mt-8">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
-              <a href="/#contact">
+              <a href="/contact">
                 Get Your Free Quote <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>

@@ -21,13 +21,11 @@
       "Bash(curl -sI https://github.com/cli/cli/releases/latest)",
       "Bash(curl -L \"https://github.com/cli/cli/releases/download/v2.92.0/gh_2.92.0_macOS_amd64.tar.gz\" -o /tmp/gh.tar.gz)",
       "Bash(/tmp/gh_2.92.0_macOS_amd64/bin/gh --version)",
-<<<<<<< Updated upstream
       "WebFetch(domain:www.billingsspeech.com)",
       "Bash(zip -r ~/Desktop/billingsspeech.zip billingsspeech/)",
       "mcp__visualize__read_me",
       "mcp__visualize__show_widget",
-      "mcp__Claude_Preview__preview_start"
-=======
+      "mcp__Claude_Preview__preview_start",
       "Bash(npm install *)",
       "Bash(npm run *)",
       "Bash(echo \"PID: $!\")",
@@ -41,8 +39,16 @@
       "Bash(python3 *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
->>>>>>> Stashed changes
+      "Bash(git push *)",
+      "Bash(npx next *)",
+      "WebFetch(domain:yourstrulyinteriordesign.com)",
+      "Bash(curl -sL \"https://yourstrulyinteriordesign.com\")",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(node -e ' *)",
+      "Bash(sips *)",
+      "Bash(git stash *)",
+      "Bash(git pull *)"
     ]
   }
 }

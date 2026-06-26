@@ -15,11 +15,11 @@ export function Hero() {
       buttons={{
         primary: {
           text: "Get a Free Quote",
-          href: "#contact",
+          href: "/contact",
         },
         secondary: {
           text: "See How It Works",
-          href: "#how-it-works",
+          href: "/how-it-works",
         },
       }}
     />

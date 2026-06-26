@@ -1,9 +1,10 @@
 const navLinks = [
-  { href: "/#services", label: "Services" },
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#pricing", label: "Pricing" },
+  { href: "/services", label: "Services" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -14,7 +15,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <a href="#home" className="mb-4 flex items-center gap-2 font-bold text-lg">
+            <a href="/" className="mb-4 flex items-center gap-2 font-bold text-lg">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white text-xs font-black select-none shadow-lg shadow-brand/40">
                 C
               </div>

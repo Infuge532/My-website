@@ -133,7 +133,7 @@ export function Pricing() {
                   className={`mt-8 w-full ${plan.highlighted ? "shadow-lg shadow-brand/30" : ""}`}
                   variant={plan.highlighted ? "default" : "outline"}
                 >
-                  <a href="#contact">{plan.cta}</a>
+                  <a href="/contact">{plan.cta}</a>
                 </Button>
               </div>
             ))}
@@ -141,7 +141,7 @@ export function Pricing() {
 
         <p className="mt-10 text-center text-sm text-muted-foreground">
           Need something custom?{" "}
-          <a href="#contact" className="font-medium text-brand hover:underline">
+          <a href="/contact" className="font-medium text-brand hover:underline">
             Let&rsquo;s talk &rarr;
           </a>
         </p>

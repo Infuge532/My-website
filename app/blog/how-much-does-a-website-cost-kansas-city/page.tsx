@@ -14,9 +14,53 @@ export const metadata: Metadata = {
   ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How Much Does a Website Cost for a Small Business in Kansas City?",
+  description:
+    "A transparent breakdown of website costs for small businesses in Kansas City and Overland Park, KS.",
+  datePublished: "2025-06-24",
+  author: {
+    "@type": "LocalBusiness",
+    name: "BuiltForSmallBiz",
+    areaServed: [
+      { "@type": "City", name: "Kansas City, MO" },
+      { "@type": "City", name: "Kansas City, KS" },
+      { "@type": "City", name: "Overland Park, KS" },
+      { "@type": "City", name: "Olathe, KS" },
+      { "@type": "City", name: "Lenexa, KS" },
+      { "@type": "City", name: "Shawnee, KS" },
+      { "@type": "City", name: "Leawood, KS" },
+      { "@type": "City", name: "Prairie Village, KS" },
+      { "@type": "City", name: "Merriam, KS" },
+      { "@type": "City", name: "Mission, KS" },
+      { "@type": "City", name: "Gardner, KS" },
+      { "@type": "City", name: "Spring Hill, KS" },
+      { "@type": "City", name: "De Soto, KS" },
+      { "@type": "City", name: "Bonner Springs, KS" },
+      { "@type": "City", name: "Independence, MO" },
+      { "@type": "City", name: "Lee's Summit, MO" },
+      { "@type": "City", name: "Blue Springs, MO" },
+      { "@type": "City", name: "Liberty, MO" },
+      { "@type": "City", name: "Gladstone, MO" },
+      { "@type": "City", name: "Raytown, MO" },
+      { "@type": "City", name: "Grandview, MO" },
+      { "@type": "City", name: "Belton, MO" },
+      { "@type": "City", name: "Raymore, MO" },
+      { "@type": "City", name: "North Kansas City, MO" },
+      { "@type": "City", name: "Parkville, MO" },
+    ],
+  },
+};
+
 export default function WebsiteCostKansasCity() {
   return (
     <article className="relative py-24 overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="absolute right-0 top-1/4 h-[400px] w-[400px] rounded-full bg-brand/6 blur-[100px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-2xl px-6">
@@ -25,7 +69,7 @@ export default function WebsiteCostKansasCity() {
             Blog
           </p>
           <h1 className="text-3xl font-bold md:text-4xl leading-tight">
-            How Much Does a Website Cost for a Small Business in Kansas City?
+            How Much Does a Website Cost for a Small Business?
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
             June 24, 2025 &middot; 5 min read
@@ -34,14 +78,14 @@ export default function WebsiteCostKansasCity() {
 
         <div className="prose-custom space-y-6 text-muted-foreground leading-relaxed">
           <p>
-            If you&rsquo;re a small business owner in Kansas City or Overland
-            Park, one of the first questions you&rsquo;ll ask when thinking
+            If you&rsquo;re a small business owner, one of the first
+            questions you&rsquo;ll ask when thinking
             about a website is: <strong className="text-foreground">how much is this going to cost me?</strong>
           </p>
           <p>
             The honest answer is that it depends — but not in the vague,
             dodge-the-question way most agencies mean it. Here&rsquo;s a real
-            breakdown of what small businesses in the Kansas City area are
+            breakdown of what small businesses are actually
             paying for websites in 2025, and what you should watch out for.
           </p>
 
@@ -49,7 +93,7 @@ export default function WebsiteCostKansasCity() {
             The typical price ranges
           </h2>
           <p>
-            For a small business website in Kansas City, you&rsquo;ll generally
+            For a small business website, you&rsquo;ll generally
             see three tiers:
           </p>
           <div className="space-y-4">
@@ -80,7 +124,7 @@ export default function WebsiteCostKansasCity() {
                 Agencies: $5,000–$25,000+
               </h3>
               <p className="mt-2 text-sm">
-                Big agencies in Kansas City charge premium rates. You&rsquo;re
+                Big agencies charge premium rates. You&rsquo;re
                 paying for account managers, project managers, and a team of
                 specialists. Great for large companies, but way more than most
                 small businesses need.
@@ -136,7 +180,7 @@ export default function WebsiteCostKansasCity() {
             The hidden costs to watch out for
           </h2>
           <p>
-            This is where a lot of Kansas City small business owners get burned.
+            This is where a lot of small business owners get burned.
             A website that costs &ldquo;$99/month&rdquo; sounds cheap — until
             you realize you&rsquo;re paying $1,200 a year and don&rsquo;t own
             anything. After three years, you&rsquo;ve spent $3,600 and if you
@@ -166,8 +210,8 @@ export default function WebsiteCostKansasCity() {
             What we charge at BuiltForSmallBiz
           </h2>
           <p>
-            We built our pricing specifically for small businesses in Overland
-            Park and Kansas City. Here&rsquo;s the simple version:
+            We built our pricing specifically for small businesses.
+            Here&rsquo;s the simple version:
           </p>
           <ul className="space-y-2 list-none">
             <li className="flex gap-2">
@@ -196,7 +240,7 @@ export default function WebsiteCostKansasCity() {
           </h2>
           <p>
             You don&rsquo;t need to spend thousands to get a professional
-            website for your Kansas City small business. What matters is that
+            website for your small business. What matters is that
             you work with someone transparent about pricing, who builds
             something you actually own, and who doesn&rsquo;t disappear after
             launch.
@@ -213,7 +257,7 @@ export default function WebsiteCostKansasCity() {
           </p>
           <div className="mt-6">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
-              <a href="/#contact">
+              <a href="/contact">
                 Get Your Free Quote <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>

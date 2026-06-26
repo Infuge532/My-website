@@ -5,11 +5,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const links = [
-  { href: "/#services", label: "Services" },
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#pricing", label: "Pricing" },
+  { href: "/services", label: "Services" },
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -31,7 +32,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#home" className="relative flex items-center font-bold text-lg pl-16">
+        <a href="/" className="relative flex items-center font-bold text-lg pl-16">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="Logo" style={{ height: '52px', width: 'auto', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }} />
           BuiltForSmallBiz
@@ -51,7 +52,7 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Button asChild size="sm" className="shadow-lg shadow-brand/30">
-            <a href="#contact">Get a Free Quote</a>
+            <a href="/contact">Get a Free Quote</a>
           </Button>
         </div>
 
@@ -77,7 +78,7 @@ export function Navbar() {
             </a>
           ))}
           <Button asChild size="sm" className="w-full">
-            <a href="#contact" onClick={() => setOpen(false)}>
+            <a href="/contact" onClick={() => setOpen(false)}>
               Get a Free Quote
             </a>
           </Button>

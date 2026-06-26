@@ -1,50 +1,15 @@
-"use client";
-
-import { useState } from "react";
-import { Star } from "lucide-react";
-import Image from "next/image";
+import { TestimonialSlider } from "@/components/testimonial-slider";
 
 const reviews = [
   {
-    name: "Jane Smith",
-    business: "Smith's Bakery",
+    name: "Christina R",
+    business: "Interior Designer",
     rating: 5,
-    text: "Eli built us an amazing website that perfectly captures our bakery's vibe. We've seen a huge increase in online orders since launching!",
-    image: "/reviews/smiths-bakery.png",
-  },
-  {
-    name: "Marcus Johnson",
-    business: "Johnson Landscaping",
-    rating: 5,
-    text: "Professional, fast, and easy to work with. Our new site looks incredible and we're getting way more calls from it.",
-    image: "/reviews/johnson-landscaping.png",
-  },
-  {
-    name: "Sarah Chen",
-    business: "Bloom Flower Studio",
-    rating: 5,
-    text: "I had no idea what I wanted and Eli walked me through the whole process. The site turned out better than I could have imagined.",
-    image: "/reviews/bloom-flower-studio.png",
+    text: "I used Eli to help me update my website which was quite dated before, he did a wonderful job! He listened to all of my needs and made sure I was happy before completing the job! I would recommend and will be using him again in the future! Very good value for the service he gave as well :)",
+    image: "/reviews/christina-r.jpg",
+    url: "https://yourstrulyinteriordesign.com",
   },
 ];
-
-function ReviewImage({ src, alt }: { src: string; alt: string }) {
-  const [error, setError] = useState(false);
-
-  if (error) return null;
-
-  return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-        onError={() => setError(true)}
-      />
-    </div>
-  );
-}
 
 export function Reviews() {
   return (
@@ -64,45 +29,9 @@ export function Reviews() {
             Real feedback from small business owners we&rsquo;ve worked with.
           </p>
         </div>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <div
-              key={review.name}
-              className="group relative flex flex-col rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-brand/40"
-            >
-              {review.image && (
-                <ReviewImage
-                  src={review.image}
-                  alt={`Website built for ${review.business}`}
-                />
-              )}
-
-              <div className="flex flex-1 flex-col p-6">
-                <div className="mb-3 flex gap-0.5">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-brand text-brand"
-                    />
-                  ))}
-                </div>
-
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-
-                <div>
-                  <p className="font-semibold text-sm">{review.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {review.business}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
+
+      <TestimonialSlider reviews={reviews} />
 
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/60 to-transparent" />
     </section>

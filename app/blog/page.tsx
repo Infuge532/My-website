@@ -10,17 +10,17 @@ export const metadata: Metadata = {
 const posts = [
   {
     slug: "how-much-does-a-website-cost-kansas-city",
-    title: "How Much Does a Website Cost for a Small Business in Kansas City?",
+    title: "How Much Does a Website Cost for a Small Business?",
     excerpt:
-      "A transparent breakdown of what small businesses in Kansas City and Overland Park should expect to pay for a professional website in 2025.",
+      "A transparent breakdown of what small businesses should expect to pay for a professional website in 2025.",
     date: "June 24, 2025",
   },
   {
     slug: "does-my-small-business-need-a-website-overland-park",
     title:
-      "Does My Small Business in Overland Park Really Need a Website?",
+      "Does My Small Business Really Need a Website?",
     excerpt:
-      "If you're a small business owner in Overland Park wondering whether a website is worth the investment, here's the honest answer.",
+      "If you're a small business owner wondering whether a website is worth the investment, here's the honest answer.",
     date: "June 24, 2025",
   },
 ];
@@ -40,8 +40,8 @@ export default function BlogIndex() {
             Tips & Guides for Small Business Owners
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Practical advice on websites, SEO, and getting your Overland Park
-            or Kansas City business found online.
+            Practical advice on websites, SEO, and getting your small
+            business found online.
           </p>
         </div>
 

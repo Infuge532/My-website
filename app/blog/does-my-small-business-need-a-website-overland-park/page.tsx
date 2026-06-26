@@ -15,9 +15,53 @@ export const metadata: Metadata = {
   ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Does My Small Business in Overland Park Really Need a Website?",
+  description:
+    "Wondering if your Overland Park small business needs a website? Here's the honest answer — and what it actually costs to get one.",
+  datePublished: "2025-06-24",
+  author: {
+    "@type": "LocalBusiness",
+    name: "BuiltForSmallBiz",
+    areaServed: [
+      { "@type": "City", name: "Overland Park, KS" },
+      { "@type": "City", name: "Kansas City, MO" },
+      { "@type": "City", name: "Kansas City, KS" },
+      { "@type": "City", name: "Olathe, KS" },
+      { "@type": "City", name: "Lenexa, KS" },
+      { "@type": "City", name: "Shawnee, KS" },
+      { "@type": "City", name: "Leawood, KS" },
+      { "@type": "City", name: "Prairie Village, KS" },
+      { "@type": "City", name: "Merriam, KS" },
+      { "@type": "City", name: "Mission, KS" },
+      { "@type": "City", name: "Gardner, KS" },
+      { "@type": "City", name: "Spring Hill, KS" },
+      { "@type": "City", name: "De Soto, KS" },
+      { "@type": "City", name: "Bonner Springs, KS" },
+      { "@type": "City", name: "Independence, MO" },
+      { "@type": "City", name: "Lee's Summit, MO" },
+      { "@type": "City", name: "Blue Springs, MO" },
+      { "@type": "City", name: "Liberty, MO" },
+      { "@type": "City", name: "Gladstone, MO" },
+      { "@type": "City", name: "Raytown, MO" },
+      { "@type": "City", name: "Grandview, MO" },
+      { "@type": "City", name: "Belton, MO" },
+      { "@type": "City", name: "Raymore, MO" },
+      { "@type": "City", name: "North Kansas City, MO" },
+      { "@type": "City", name: "Parkville, MO" },
+    ],
+  },
+};
+
 export default function DoesMyBusinessNeedAWebsite() {
   return (
     <article className="relative py-24 overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="absolute left-0 top-1/3 h-[400px] w-[400px] rounded-full bg-brand/6 blur-[100px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-2xl px-6">
@@ -26,7 +70,7 @@ export default function DoesMyBusinessNeedAWebsite() {
             Blog
           </p>
           <h1 className="text-3xl font-bold md:text-4xl leading-tight">
-            Does My Small Business in Overland Park Really Need a Website?
+            Does My Small Business Really Need a Website?
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
             June 24, 2025 &middot; 4 min read
@@ -35,7 +79,7 @@ export default function DoesMyBusinessNeedAWebsite() {
 
         <div className="prose-custom space-y-6 text-muted-foreground leading-relaxed">
           <p>
-            You run a small business in Overland Park. You&rsquo;ve got
+            You run a small business. You&rsquo;ve got
             customers. You&rsquo;ve got a Facebook page. Maybe you&rsquo;re on
             Google Maps. Things are working. So do you actually need a website?
           </p>
@@ -49,7 +93,7 @@ export default function DoesMyBusinessNeedAWebsite() {
             People are searching for you right now
           </h2>
           <p>
-            When someone in Overland Park or the Kansas City area needs a
+            When someone in your area needs a
             service, the first thing they do is search for it on Google. If
             you don&rsquo;t have a website, you&rsquo;re invisible to those
             people. Your competitors who do have websites? They&rsquo;re getting
@@ -66,7 +110,7 @@ export default function DoesMyBusinessNeedAWebsite() {
             A Facebook page is not a website
           </h2>
           <p>
-            We hear this a lot from Overland Park business owners: &ldquo;I
+            We hear this a lot from small business owners: &ldquo;I
             have a Facebook page, isn&rsquo;t that enough?&rdquo; It&rsquo;s
             not, for a few important reasons:
           </p>
@@ -118,7 +162,7 @@ export default function DoesMyBusinessNeedAWebsite() {
           </p>
           <p>
             Your customers think the same way. A clean, professional website
-            tells people in Overland Park and Kansas City that you&rsquo;re
+            tells people that you&rsquo;re
             established, trustworthy, and serious about your work. It&rsquo;s
             your digital storefront — and for a lot of customers, it&rsquo;s
             the first impression they&rsquo;ll ever have of your business.
@@ -139,8 +183,8 @@ export default function DoesMyBusinessNeedAWebsite() {
             &ldquo;But I can&rsquo;t afford a website&rdquo;
           </h2>
           <p>
-            This is the concern we hear most from small business owners in
-            Overland Park. And five years ago, it was a fair point — websites
+            This is the concern we hear most from small business owners.
+            And five years ago, it was a fair point — websites
             used to cost $5,000 or more. But that&rsquo;s not the case
             anymore.
           </p>
@@ -160,7 +204,7 @@ export default function DoesMyBusinessNeedAWebsite() {
           <ul className="space-y-2 list-none">
             <li className="flex gap-2">
               <span className="text-brand font-bold shrink-0">&bull;</span>
-              <span>Show up when people in Overland Park search for your type of service</span>
+              <span>Show up when people search for your type of service</span>
             </li>
             <li className="flex gap-2">
               <span className="text-brand font-bold shrink-0">&bull;</span>
@@ -184,7 +228,7 @@ export default function DoesMyBusinessNeedAWebsite() {
             The bottom line
           </h2>
           <p>
-            If you&rsquo;re a small business in Overland Park without a
+            If you&rsquo;re a small business without a
             website, you&rsquo;re leaving money on the table. The customers are
             out there searching — the only question is whether they find you or
             your competitor first.
@@ -196,12 +240,12 @@ export default function DoesMyBusinessNeedAWebsite() {
             Ready to get your business online?
           </h2>
           <p className="mt-2 text-muted-foreground">
-            We build professional websites for small businesses in Overland
-            Park and Kansas City — starting at $599, no monthly fees.
+            We build professional websites for small businesses — starting
+            at $599, no monthly fees.
           </p>
           <div className="mt-6">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
-              <a href="/#contact">
+              <a href="/contact">
                 Get Your Free Quote <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>

@@ -82,6 +82,59 @@ export default function RootLayout({
             gtag('config', 'G-7BYW3G7VD1');
           `}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "BuiltForSmallBiz",
+              url: siteUrl,
+              description:
+                "Professional, affordable websites for small businesses in the Kansas City metro area.",
+              areaServed: [
+                { "@type": "City", name: "Overland Park, KS" },
+                { "@type": "City", name: "Kansas City, MO" },
+                { "@type": "City", name: "Kansas City, KS" },
+                { "@type": "City", name: "Olathe, KS" },
+                { "@type": "City", name: "Lenexa, KS" },
+                { "@type": "City", name: "Shawnee, KS" },
+                { "@type": "City", name: "Leawood, KS" },
+                { "@type": "City", name: "Prairie Village, KS" },
+                { "@type": "City", name: "Merriam, KS" },
+                { "@type": "City", name: "Mission, KS" },
+                { "@type": "City", name: "Roeland Park, KS" },
+                { "@type": "City", name: "Fairway, KS" },
+                { "@type": "City", name: "Westwood, KS" },
+                { "@type": "City", name: "Mission Hills, KS" },
+                { "@type": "City", name: "Gardner, KS" },
+                { "@type": "City", name: "Spring Hill, KS" },
+                { "@type": "City", name: "De Soto, KS" },
+                { "@type": "City", name: "Bonner Springs, KS" },
+                { "@type": "City", name: "Edgerton, KS" },
+                { "@type": "City", name: "Lake Quivira, KS" },
+                { "@type": "City", name: "Independence, MO" },
+                { "@type": "City", name: "Lee's Summit, MO" },
+                { "@type": "City", name: "Blue Springs, MO" },
+                { "@type": "City", name: "Liberty, MO" },
+                { "@type": "City", name: "Gladstone, MO" },
+                { "@type": "City", name: "Raytown, MO" },
+                { "@type": "City", name: "Grandview, MO" },
+                { "@type": "City", name: "Belton, MO" },
+                { "@type": "City", name: "Raymore, MO" },
+                { "@type": "City", name: "Grain Valley, MO" },
+                { "@type": "City", name: "Pleasant Hill, MO" },
+                { "@type": "City", name: "North Kansas City, MO" },
+                { "@type": "City", name: "Parkville, MO" },
+                { "@type": "City", name: "Riverside, MO" },
+                { "@type": "City", name: "Smithville, MO" },
+                { "@type": "City", name: "Kearney, MO" },
+                { "@type": "City", name: "Excelsior Springs, MO" },
+              ],
+              serviceType: "Web Design",
+            }),
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
