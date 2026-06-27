@@ -53,14 +53,14 @@ export default function NewBusinessWebsiteKansasCity() {
             New Business Website
           </p>
           <h1 className="text-4xl font-bold md:text-5xl">
-            Professional Websites for Small Businesses in{" "}
-            <span className="text-gradient">Kansas City</span>
+            Professional Websites for{" "}
+            <span className="text-gradient">Small Businesses</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Starting a business in Kansas City or Overland Park? You need a
-            website that makes a strong first impression — without breaking your
-            budget. We build affordable, professional websites for new small
-            businesses, live in 1–2 weeks.
+            Starting a new business? You need a website that makes a strong
+            first impression — without breaking your budget. We build
+            affordable, professional websites for new small businesses, live
+            in 1–2 weeks.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
@@ -116,9 +116,9 @@ export default function NewBusinessWebsiteKansasCity() {
                 What&rsquo;s included with every new website
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Every site we build for Kansas City and Overland Park businesses
-                comes with everything you need to make a great impression
-                online — no hidden fees, no surprise charges.
+                Every site we build comes with everything you need to make a
+                great impression online — no hidden fees, no surprise
+                charges.
               </p>
             </div>
             <div className="space-y-4">

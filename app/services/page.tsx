@@ -65,9 +65,8 @@ export default function ServicesPage() {
             <span className="text-gradient">business growth</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            From design to deployment, we help small businesses in Overland Park
-            and Kansas City get online — so you can stay focused on what you do
-            best.
+            From design to deployment, we help small businesses get online — so
+            you can stay focused on what you do best.
           </p>
         </div>
       </section>

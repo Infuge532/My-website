@@ -44,8 +44,8 @@ export function Features() {
             </h2>
             <p className="mb-10 text-muted-foreground">
               Most agencies are built for enterprise clients. We designed our
-              entire process for small businesses in Overland Park and
-              Kansas City that need real results without an enterprise
+              entire process for small businesses that need real results
+              without an enterprise
               price tag.
             </p>
 

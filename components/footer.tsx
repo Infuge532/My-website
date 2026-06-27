@@ -22,8 +22,7 @@ export function Footer() {
               BuiltForSmallBiz
             </a>
             <p className="max-w-xs text-sm text-muted-foreground leading-relaxed">
-              Affordable, professional websites for small businesses in
-              Overland Park, KS and the greater Kansas City area. No
+              Affordable, professional websites for small businesses. No
               servers, no headaches — just a site that works for you.
             </p>
           </div>
@@ -79,7 +78,7 @@ export function Footer() {
 
         <div className="mt-10 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} BuiltForSmallBiz. All rights reserved.</p>
-          <p className="mt-1">Based in Overland Park, KS — serving small businesses across Kansas City</p>
+          <p className="mt-1">Serving small businesses everywhere</p>
         </div>
       </div>
     </footer>

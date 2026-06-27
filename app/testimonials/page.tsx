@@ -47,7 +47,7 @@ export default function TestimonialsPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
               Real feedback from small business owners we&rsquo;ve worked with
-              in Overland Park and Kansas City.
+              from across the country.
             </p>
           </div>
         </section>

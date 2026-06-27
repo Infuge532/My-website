@@ -34,7 +34,7 @@ const reasons = [
 
 const faqs = [
   {
-    q: "How much does a website cost in Overland Park?",
+    q: "How much does a website cost?",
     a: "Our websites start at $499 for a complete redesign and $599 for a brand new site. That's a one-time cost — no monthly fees. Most agencies charge $3,000–$10,000 for the same quality of work.",
   },
   {
@@ -63,14 +63,13 @@ export default function AffordableWebDesignOverlandPark() {
             Affordable Web Design
           </p>
           <h1 className="text-4xl font-bold md:text-5xl">
-            Affordable Web Design for Small Businesses in{" "}
-            <span className="text-gradient">Overland Park, KS</span>
+            Affordable Web Design for{" "}
+            <span className="text-gradient">Small Businesses</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             You shouldn&rsquo;t have to spend thousands to get a professional
-            website. We build clean, modern websites for small businesses in
-            Overland Park and Kansas City — starting at $499 with no monthly
-            fees.
+            website. We build clean, modern websites for small businesses —
+            starting at $499 with no monthly fees.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="shadow-lg shadow-brand/30">
@@ -90,7 +89,7 @@ export default function AffordableWebDesignOverlandPark() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-bold">
-              Why Overland Park businesses choose us
+              Why small businesses choose us
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
               We built our entire process for small businesses that need

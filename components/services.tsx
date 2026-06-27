@@ -38,9 +38,8 @@ export function Services() {
             Modern websites built for business growth
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            From design to deployment, we help small businesses in Overland
-            Park and Kansas City get online — so you can stay focused on
-            what you do best.
+            From design to deployment, we help small businesses get
+            online — so you can stay focused on what you do best.
           </p>
         </div>
 

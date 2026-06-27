@@ -35,14 +35,14 @@ export default function WebsiteRedesignOverlandPark() {
             Website Redesign
           </p>
           <h1 className="text-4xl font-bold md:text-5xl">
-            Website Redesign for Small Businesses in{" "}
-            <span className="text-gradient">Overland Park, KS</span>
+            Website Redesign for{" "}
+            <span className="text-gradient">Small Businesses</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Your website is often the first thing customers see. If it looks
             outdated, loads slowly, or doesn&rsquo;t work on phones, you&rsquo;re
-            losing business. We redesign small business websites in Overland Park
-            and Kansas City to look modern, load fast, and convert visitors into
+            losing business. We redesign small business websites to look modern,
+            load fast, and convert visitors into
             customers.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -68,8 +68,7 @@ export default function WebsiteRedesignOverlandPark() {
               </h2>
               <p className="mt-4 text-muted-foreground">
                 A website that was built five years ago doesn&rsquo;t meet
-                today&rsquo;s standards. Visitors in Overland Park and the
-                greater Kansas City area expect fast, clean, mobile-friendly
+                today&rsquo;s standards. Visitors expect fast, clean, mobile-friendly
                 sites. An outdated design signals an outdated business — even
                 if that&rsquo;s far from the truth.
               </p>
