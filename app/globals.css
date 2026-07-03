@@ -190,3 +190,252 @@
   .shader-delay-600 { animation-delay: 0.6s; }
   .shader-delay-800 { animation-delay: 0.8s; }
 }
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal — directional variants with a springy settle
+--------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.22, 1.24, 0.36, 1);
+}
+.reveal-up { transform: translateY(40px); }
+.reveal-down { transform: translateY(-32px); }
+.reveal-left { transform: translateX(-48px); }
+.reveal-right { transform: translateX(48px); }
+.reveal-zoom { transform: scale(0.92) translateY(20px); }
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero scroll cue */
+@keyframes cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+.animate-cue { animation: cue-bounce 2.2s ease-in-out infinite; }
+
+/* ---------------------------------------------------------------------------
+   Process showcase (wireframe → design → content → launch)
+   Driven by data-stage="1..4" on .process-demo
+--------------------------------------------------------------------------- */
+.process-demo .pd-ph {
+  background: color-mix(in oklch, var(--muted-foreground) 35%, transparent);
+  border-radius: 3px;
+  transition: background 0.5s ease, opacity 0.5s ease;
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-ph {
+  background: color-mix(in oklch, var(--brand) 45%, transparent);
+}
+.process-demo:is([data-stage="3"], [data-stage="4"]) .pd-ph {
+  opacity: 0;
+}
+
+.process-demo .pd-real {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.15s;
+}
+.process-demo:is([data-stage="3"], [data-stage="4"]) .pd-real {
+  opacity: 1;
+}
+
+/* Elements visible only in the wireframe stage */
+.process-demo .pd-s1 {
+  transition: opacity 0.5s ease;
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-s1 {
+  opacity: 0;
+}
+
+/* Elements visible only in the design stage */
+.process-demo .pd-s2 {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.process-demo[data-stage="2"] .pd-s2 {
+  opacity: 1;
+}
+
+/* Elements that arrive with the design stage and stay */
+.process-demo .pd-d {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.1s;
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-d {
+  opacity: 1;
+}
+
+/* Wireframe X-cross inside image placeholder blocks */
+.process-demo .pd-x {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), color-mix(in oklch, var(--muted-foreground) 35%, transparent) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), color-mix(in oklch, var(--muted-foreground) 35%, transparent) 50%, transparent calc(50% + 0.5px));
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-x {
+  opacity: 0;
+}
+
+.process-demo .pd-blk {
+  border: 1.5px dashed color-mix(in oklch, var(--muted-foreground) 40%, transparent);
+  background: transparent;
+  border-radius: 2px;
+  transition: border-color 0.5s ease, background 0.5s ease, border-radius 0.5s ease;
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-blk {
+  border-style: solid;
+  border-color: color-mix(in oklch, var(--brand) 45%, transparent);
+  background: color-mix(in oklch, var(--brand) 14%, transparent);
+  border-radius: 6px;
+}
+
+.process-demo .pd-crd {
+  border: 1.5px dashed color-mix(in oklch, var(--muted-foreground) 35%, transparent);
+  border-radius: 3px;
+  transition: border-color 0.5s ease, background 0.5s ease, border-radius 0.5s ease;
+}
+.process-demo:is([data-stage="2"], [data-stage="3"], [data-stage="4"]) .pd-crd {
+  border-style: solid;
+  border-color: var(--border);
+  background: color-mix(in oklch, var(--card) 60%, transparent);
+  border-radius: 10px;
+}
+
+.process-demo .pd-cta {
+  border: 1.5px dashed color-mix(in oklch, var(--muted-foreground) 40%, transparent);
+  border-radius: 4px;
+  transition: border-color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease;
+}
+.process-demo[data-stage="2"] .pd-cta {
+  border-color: transparent;
+  background: color-mix(in oklch, var(--brand) 30%, transparent);
+  border-radius: 9999px;
+}
+.process-demo[data-stage="2"] .pd-cta .pd-ph {
+  background: rgb(255 255 255 / 0.55);
+}
+.process-demo:is([data-stage="3"], [data-stage="4"]) .pd-cta {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--brand), oklch(0.58 0.25 295));
+  box-shadow: 0 4px 16px color-mix(in oklch, var(--brand) 35%, transparent);
+  border-radius: 9999px;
+}
+
+/* URL bar: preview link during the build, real domain at launch */
+.process-demo .pd-url {
+  position: relative;
+}
+.process-demo .pd-url-draft {
+  transition: opacity 0.5s ease;
+}
+.process-demo .pd-url-live {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.15s;
+}
+.process-demo[data-stage="4"] .pd-url-draft {
+  opacity: 0;
+}
+.process-demo[data-stage="4"] .pd-url-live {
+  opacity: 1;
+}
+
+/* Launch checklist bar sliding up inside the frame */
+.process-demo .pd-launchbar {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: 1px solid transparent;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease 0.15s, padding 0.5s ease, border-color 0.5s ease;
+}
+.process-demo[data-stage="4"] .pd-launchbar {
+  max-height: 2.5rem;
+  opacity: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top-color: color-mix(in oklch, var(--border) 100%, transparent);
+}
+
+/* Live badge pop + sheen sweep at launch */
+@keyframes pd-pop {
+  0% { transform: scale(0.5); }
+  60% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.process-demo[data-stage="4"] .pd-live-badge {
+  animation: pd-pop 0.45s ease 0.25s both;
+}
+
+@keyframes pd-sheen {
+  from { transform: translateX(-130%); }
+  to { transform: translateX(130%); }
+}
+.process-demo .pd-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgb(255 255 255 / 0.07) 50%, transparent 60%);
+  transform: translateX(-130%);
+}
+.process-demo[data-stage="4"] .pd-frame::after {
+  animation: pd-sheen 1.1s ease-out 0.35s both;
+}
+
+.process-demo .pd-frame {
+  position: relative;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.process-demo[data-stage="4"] .pd-frame {
+  border-color: color-mix(in oklch, var(--brand) 50%, transparent);
+  box-shadow:
+    0 0 40px oklch(0.62 0.22 265 / 0.25),
+    0 0 80px oklch(0.62 0.22 265 / 0.1);
+}
+
+.process-demo .pd-live {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+}
+.process-demo[data-stage="4"] .pd-live {
+  opacity: 1;
+}
+
+/* Text swap: placeholder bar overlays space reserved by the real text */
+.process-demo .pd-sw { position: relative; display: flex; align-items: center; }
+.process-demo .pd-sw > .pd-ph { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+.process-demo .pd-sw-ctr { justify-content: center; }
+.process-demo .pd-sw-ctr > .pd-ph { left: 50%; transform: translate(-50%, -50%); }
+.process-demo .pd-sw-end { justify-content: flex-end; }
+.process-demo .pd-sw-end > .pd-ph { left: auto; right: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .animate-cue { animation: none; }
+  .process-demo .pd-ph,
+  .process-demo .pd-real,
+  .process-demo .pd-blk,
+  .process-demo .pd-crd,
+  .process-demo .pd-cta,
+  .process-demo .pd-frame,
+  .process-demo .pd-live,
+  .process-demo .pd-s1,
+  .process-demo .pd-s2,
+  .process-demo .pd-d,
+  .process-demo .pd-x,
+  .process-demo .pd-url-draft,
+  .process-demo .pd-url-live,
+  .process-demo .pd-launchbar { transition: none; }
+  .process-demo .pd-frame::after,
+  .process-demo .pd-live-badge { animation: none !important; }
+}

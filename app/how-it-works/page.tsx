@@ -3,6 +3,8 @@ import { ArrowRight, MessageSquare, Paintbrush, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ProcessShowcase } from "@/components/process-demo";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "How It Works",
@@ -69,6 +71,13 @@ export default function HowItWorksPage() {
               We&rsquo;ve streamlined every step so you always know where things
               stand — and you&rsquo;re never left guessing.
             </p>
+          </div>
+
+          {/* Wireframe-to-launch build animation */}
+          <div className="relative mx-auto mt-16 max-w-3xl px-6">
+            <Reveal variant="zoom">
+              <ProcessShowcase />
+            </Reveal>
           </div>
         </section>
 

@@ -1,5 +1,6 @@
-import { Check } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/reveal";
 
 const plans = [
   {
@@ -65,24 +66,26 @@ export function Pricing() {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-brand/6 blur-[100px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
-            Pricing
-          </p>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Simple, honest pricing
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            No monthly retainers. No surprise bills. Pay once, own your site
-            forever.
-          </p>
-        </div>
+        <Reveal>
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
+              Pricing
+            </p>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Simple, honest pricing
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+              No monthly retainers. No surprise bills. Pay once, own your site
+              forever.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3 items-stretch">
-            {plans.map((plan) => (
+            {plans.map((plan, i) => (
+              <Reveal key={plan.name} delay={i * 120} className="h-full">
               <div
-                key={plan.name}
-                className={`relative flex flex-col rounded-2xl p-8 transition-all duration-300 ${
+                className={`relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 ${
                   plan.highlighted
                     ? "border border-brand/50 bg-card glow-brand scale-105"
                     : "border border-border/50 bg-card hover:border-border"
@@ -136,8 +139,25 @@ export function Pricing() {
                   <a href="/contact">{plan.cta}</a>
                 </Button>
               </div>
+              </Reveal>
             ))}
         </div>
+
+        {/* Risk reversal */}
+        <Reveal variant="zoom" delay={150}>
+          <div className="mx-auto mt-14 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-brand/25 bg-brand/5 px-8 py-6 text-center sm:flex-row sm:text-left">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand/15 ring-1 ring-brand/30">
+              <ShieldCheck className="h-6 w-6 text-brand" />
+            </div>
+            <div>
+              <p className="font-semibold">Pay once. Own it forever.</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                No retainers, no lock-in, no surprise bills — and a 100%
+                satisfaction guarantee on every project.
+              </p>
+            </div>
+          </div>
+        </Reveal>
 
         <p className="mt-10 text-center text-sm text-muted-foreground">
           Need something custom?{" "}

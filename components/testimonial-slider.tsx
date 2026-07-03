@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import Image from "next/image";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight, ExternalLink, Lock } from "lucide-react";
 
 interface Review {
   name: string;
@@ -11,6 +10,16 @@ interface Review {
   text: string;
   image: string;
   url?: string;
+  metrics?: string[];
+}
+
+function hostFromUrl(url?: string) {
+  if (!url) return null;
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return null;
+  }
 }
 
 function WebsiteImage({
@@ -24,7 +33,7 @@ function WebsiteImage({
 
   if (error) {
     return (
-      <div className="flex h-full w-full items-center justify-center rounded-xl border border-border/30 bg-muted/30">
+      <div className="flex min-h-48 h-full w-full items-center justify-center bg-muted/30">
         <div className="text-center px-6">
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-brand/15 ring-1 ring-brand/20">
             <svg
@@ -50,7 +59,7 @@ function WebsiteImage({
   }
 
   return (
-    <div className="flex h-full w-full items-end overflow-hidden rounded-xl border border-border/30">
+    <div className="flex h-full w-full items-end overflow-hidden">
       <img
         src={src}
         alt={alt}
@@ -94,21 +103,48 @@ export function TestimonialSlider({ reviews }: { reviews: Review[] }) {
         <div className="absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
 
         <div className="grid md:grid-cols-[3fr_2fr] items-center">
-          {/* Website image */}
-          <div className="relative border-b border-brand/10 bg-white/[0.02] md:border-b-0 md:border-r">
-            {review.url ? (
-              <a href={review.url} target="_blank" rel="noopener noreferrer" className="block">
-                <WebsiteImage
-                  src={review.image}
-                  alt={`Website built for ${review.business}`}
-                />
-              </a>
-            ) : (
-              <WebsiteImage
-                src={review.image}
-                alt={`Website built for ${review.business}`}
-              />
-            )}
+          {/* Website in a browser frame */}
+          <div className="relative border-b border-brand/10 bg-white/[0.02] p-4 md:border-b-0 md:border-r md:p-6">
+            {(() => {
+              const host = hostFromUrl(review.url);
+              const frame = (
+                <div className="overflow-hidden rounded-lg border border-border/40 bg-background/40 transition-all duration-300 group-hover/frame:border-brand/40">
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-2.5 border-b border-border/40 bg-white/[0.03] px-3 py-2">
+                    <span className="flex gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-muted-foreground/25" />
+                      <span className="h-2 w-2 rounded-full bg-muted-foreground/25" />
+                      <span className="h-2 w-2 rounded-full bg-muted-foreground/25" />
+                    </span>
+                    {host && (
+                      <span className="flex items-center gap-1.5 rounded bg-background/60 px-2.5 py-0.5 text-[11px] text-muted-foreground">
+                        <Lock className="h-2.5 w-2.5 text-emerald-400" />
+                        {host}
+                      </span>
+                    )}
+                    {review.url && (
+                      <ExternalLink className="ml-auto h-3 w-3 text-muted-foreground/50" />
+                    )}
+                  </div>
+                  <WebsiteImage
+                    src={review.image}
+                    alt={`Website built for ${review.business}`}
+                  />
+                </div>
+              );
+              return review.url ? (
+                <a
+                  href={review.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/frame block"
+                >
+                  {frame}
+                </a>
+              ) : (
+                frame
+              );
+            })()}
           </div>
 
           {/* Testimonial content */}
@@ -127,6 +163,19 @@ export function TestimonialSlider({ reviews }: { reviews: Review[] }) {
             <p className="mb-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               &ldquo;{review.text}&rdquo;
             </p>
+
+            {review.metrics && review.metrics.length > 0 && (
+              <div className="mb-6 flex flex-wrap gap-2">
+                {review.metrics.map((metric) => (
+                  <span
+                    key={metric}
+                    className="rounded-full bg-brand/15 px-2.5 py-1 text-xs font-medium text-brand ring-1 ring-brand/20"
+                  >
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            )}
 
             <div className="mb-6">
               <p className="text-base font-semibold">{review.name}</p>

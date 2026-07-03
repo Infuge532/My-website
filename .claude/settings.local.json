@@ -48,7 +48,10 @@
       "Bash(node -e ' *)",
       "Bash(sips *)",
       "Bash(git stash *)",
-      "Bash(git pull *)"
+      "Bash(git pull *)",
+      "WebFetch(domain:rocket-saas.io)",
+      "Bash(git check-ignore *)",
+      "Bash(git fetch *)"
     ]
   }
 }

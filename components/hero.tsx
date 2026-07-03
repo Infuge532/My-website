@@ -18,6 +18,7 @@ export function Hero() {
           href: "/how-it-works",
         },
       }}
+      scrollCueHref="#pain-points"
     />
   );
 }

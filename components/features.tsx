@@ -1,4 +1,6 @@
 import { DollarSign, Key, Zap } from "lucide-react";
+import { CountUp } from "@/components/count-up";
+import { Reveal } from "@/components/reveal";
 
 const features = [
   {
@@ -34,7 +36,7 @@ export function Features() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           {/* Left: text + features */}
-          <div>
+          <Reveal variant="left">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
               Why choose us
             </p>
@@ -62,22 +64,21 @@ export function Features() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: stats grid */}
           <div className="grid grid-cols-2 gap-4">
-            {stats.map(({ value, label }) => (
-              <div
-                key={label}
-                className="relative overflow-hidden rounded-xl border border-border/50 bg-card p-6 text-center"
-              >
-                {/* subtle corner glow */}
-                <div className="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-brand/20 blur-xl" />
-                <div className="relative">
-                  <div className="text-4xl font-black text-gradient">{value}</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{label}</div>
+            {stats.map(({ value, label }, i) => (
+              <Reveal key={label} variant="zoom" delay={i * 100}>
+                <div className="relative h-full overflow-hidden rounded-xl border border-border/50 bg-card p-6 text-center">
+                  {/* subtle corner glow */}
+                  <div className="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-brand/20 blur-xl" />
+                  <div className="relative">
+                    <CountUp value={value} className="block text-4xl font-black text-gradient" />
+                    <div className="mt-2 text-sm text-muted-foreground">{label}</div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

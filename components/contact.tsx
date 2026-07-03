@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { MessageSquare, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitContact } from "@/app/actions";
+import { Reveal } from "@/components/reveal";
 
 const inputClass =
   "w-full rounded-lg border border-border/50 bg-input px-3 py-2.5 text-sm outline-none transition-all placeholder:text-muted-foreground/50 focus:border-brand/60 focus:ring-2 focus:ring-brand/20";
@@ -23,7 +24,7 @@ export function Contact() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           {/* Left */}
-          <div>
+          <Reveal variant="left">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
               Get in touch
             </p>
@@ -42,10 +43,20 @@ export function Contact() {
                 </div>
                 <span>Usually responds within a few hours</span>
               </div>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-violet-500 font-bold text-white">
+                  E
+                </div>
+                <span>
+                  You&rsquo;ll work directly with Eli — the person who actually
+                  builds your site. No account managers, no handoffs.
+                </span>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: form */}
+          <Reveal variant="right" delay={120}>
           <div className="relative rounded-2xl border border-border/50 bg-card p-8 shadow-2xl">
             {/* Gradient top border */}
             <div className="absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
@@ -122,6 +133,7 @@ export function Contact() {
               </form>
             )}
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

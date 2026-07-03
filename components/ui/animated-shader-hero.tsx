@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 
 interface ButtonDef {
   text: string;
@@ -13,6 +14,7 @@ interface HeroProps {
   headline: { line1: string; line2: string };
   subtitle: string;
   buttons?: { primary?: ButtonDef; secondary?: ButtonDef };
+  scrollCueHref?: string;
   className?: string;
 }
 
@@ -186,6 +188,7 @@ export function AnimatedShaderHero({
   headline,
   subtitle,
   buttons,
+  scrollCueHref,
   className = "",
 }: HeroProps) {
   const canvasRef = useShaderBackground();
@@ -238,6 +241,17 @@ export function AnimatedShaderHero({
           </div>
         )}
       </div>
+
+      {/* Scroll cue */}
+      {scrollCueHref && (
+        <a
+          href={scrollCueHref}
+          aria-label="Scroll down to learn more"
+          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-white/50 transition-colors hover:text-white/90 shader-fade-up shader-delay-800"
+        >
+          <ChevronDown className="h-7 w-7 animate-cue" />
+        </a>
+      )}
     </div>
   );
 }

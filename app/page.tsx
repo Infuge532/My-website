@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { PainPoints } from "@/components/pain-points";
 import { Services } from "@/components/services";
 import { Features } from "@/components/features";
 import { Reviews } from "@/components/reviews";
@@ -15,10 +16,11 @@ export default function Home() {
       <JsonLd />
       <Navbar />
       <Hero />
+      <PainPoints />
       <Services />
+      <HowItWorks />
       <Features />
       <Reviews />
-      <HowItWorks />
       <Pricing />
       <Contact />
       <Footer />
