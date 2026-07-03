@@ -24,7 +24,8 @@ export const stages = [
 
 // Which process step each visual stage belongs to (design + content are both step 2)
 const STAGE_TO_STEP = [0, 1, 1, 2];
-const STAGE_MS = 2600;
+// Per-stage dwell time; Launch lingers longer so the finished state registers before looping.
+const STAGE_MS = [2600, 2600, 2600, 4200];
 
 export type ProcessDemoState = ReturnType<typeof useProcessDemo>;
 
@@ -55,11 +56,10 @@ export function useProcessDemo() {
 
   useEffect(() => {
     if (!playing) return;
-    if (stage >= stages.length - 1) {
-      setPlaying(false);
-      return;
-    }
-    const timer = setTimeout(() => setStage(stage + 1), STAGE_MS);
+    const duration = STAGE_MS[stage] ?? STAGE_MS[STAGE_MS.length - 1];
+    const timer = setTimeout(() => {
+      setStage((stage + 1) % stages.length);
+    }, duration);
     return () => clearTimeout(timer);
   }, [playing, stage]);
 
