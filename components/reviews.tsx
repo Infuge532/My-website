@@ -11,6 +11,13 @@ const reviews = [
     url: "https://yourstrulyinteriordesign.com",
     metrics: ["5★ review", "Complete redesign", "She owns everything"],
   },
+  {
+    name: "Jennifer P.",
+    business: "BluHawk HOA — Board President",
+    rating: 5,
+    text: "Eli built our community website from the ground up and the results have been incredible. Residents actually use it now — the news section, event calendar, and document portal are all super easy to navigate. He was communicative, fast, and delivered exactly what we envisioned. Couldn't recommend him more highly.",
+    image: "/reviews/Screen Shot 2026-07-11 at 1.47.55 PM.png",
+  },
 ];
 
 export function Reviews() {

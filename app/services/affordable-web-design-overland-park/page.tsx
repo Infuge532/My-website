@@ -3,13 +3,13 @@ import { Check, ArrowRight, DollarSign, Key, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Affordable Web Design in Overland Park, KS",
+  title: "Affordable Web Design for Small Businesses",
   description:
-    "Affordable website design for small businesses in Overland Park, KS. No monthly fees, no hidden costs — just a professional website starting at $499. You own everything.",
+    "Affordable website design for small businesses. No monthly fees, no hidden costs — just a professional website starting at $499. You own everything.",
   keywords: [
-    "affordable web design Overland Park",
-    "cheap website design Overland Park KS",
-    "budget web design Kansas City",
+    "affordable web design",
+    "cheap website design small business",
+    "budget web design",
     "low cost website small business",
   ],
 };

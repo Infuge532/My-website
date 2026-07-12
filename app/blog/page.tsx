@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Tips, guides, and advice on website design for small businesses in Overland Park, KS and Kansas City.",
+    "Tips, guides, and advice on website design for small businesses.",
 };
 
 const posts = [

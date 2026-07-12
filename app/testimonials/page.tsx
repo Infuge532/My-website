@@ -8,7 +8,7 @@ import { TestimonialSlider } from "@/components/testimonial-slider";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "See what small business owners in Overland Park and Kansas City are saying about BuiltForSmallBiz. Real reviews from real clients.",
+    "See what small business owners are saying about BuiltForSmallBiz. Real reviews from real clients.",
 };
 
 const reviews = [
@@ -19,6 +19,13 @@ const reviews = [
     text: "I used Eli to help me update my website which was quite dated before, he did a wonderful job! He listened to all of my needs and made sure I was happy before completing the job! I would recommend and will be using him again in the future! Very good value for the service he gave as well :)",
     image: "/reviews/christina-r.jpg",
     url: "https://yourstrulyinteriordesign.com",
+  },
+  {
+    name: "Jennifer P.",
+    business: "BluHawk HOA — Board President",
+    rating: 5,
+    text: "Eli built our community website from the ground up and the results have been incredible. Residents actually use it now — the news section, event calendar, and document portal are all super easy to navigate. He was communicative, fast, and delivered exactly what we envisioned. Couldn't recommend him more highly.",
+    image: "/reviews/Screen Shot 2026-07-11 at 1.47.55 PM.png",
   },
 ];
 

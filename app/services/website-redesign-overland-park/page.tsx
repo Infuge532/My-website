@@ -3,14 +3,14 @@ import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Website Redesign in Overland Park, KS",
+  title: "Website Redesign for Small Businesses",
   description:
-    "Give your outdated website a modern redesign. Professional website redesign for small businesses in Overland Park and Kansas City. One-time pricing, fast turnaround.",
+    "Give your outdated website a modern redesign. Professional website redesign for small businesses. One-time pricing, fast turnaround.",
   keywords: [
-    "website redesign Overland Park",
-    "website redesign Kansas City",
+    "website redesign small business",
+    "professional website redesign",
     "small business website redesign",
-    "modern website design Overland Park KS",
+    "modern website design",
   ],
 };
 

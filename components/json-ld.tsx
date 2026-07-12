@@ -18,27 +18,9 @@ const schema = {
       url: siteUrl,
       email: "eli@builtforsmallbiz.com",
       description:
-        "Affordable, professional website design for small businesses in Overland Park, KS and the Kansas City area. No servers to manage, no hidden fees, live in 1–2 weeks.",
+        "Affordable, professional website design for small businesses. No servers to manage, no hidden fees, live in 1–2 weeks.",
       priceRange: "$$",
       serviceType: "Web Design and Development",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Overland Park",
-        addressRegion: "KS",
-        addressCountry: "US",
-      },
-      areaServed: [
-        {
-          "@type": "City",
-          name: "Overland Park",
-          containedInPlace: { "@type": "State", name: "Kansas" },
-        },
-        {
-          "@type": "City",
-          name: "Kansas City",
-          containedInPlace: { "@type": "State", name: "Missouri" },
-        },
-      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Website Packages",

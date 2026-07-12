@@ -3,54 +3,27 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "How Much Does a Website Cost for a Small Business in Kansas City?",
+  title: "How Much Does a Website Cost for a Small Business?",
   description:
-    "A transparent breakdown of website costs for small businesses in Kansas City and Overland Park, KS. Learn what you should expect to pay and what to watch out for.",
+    "A transparent breakdown of website costs for small businesses. Learn what you should expect to pay and what to watch out for.",
   keywords: [
-    "website cost small business Kansas City",
+    "website cost small business",
     "how much does a website cost",
-    "small business website price Overland Park",
-    "affordable website Kansas City",
+    "small business website price",
+    "affordable website design",
   ],
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "How Much Does a Website Cost for a Small Business in Kansas City?",
+  headline: "How Much Does a Website Cost for a Small Business?",
   description:
-    "A transparent breakdown of website costs for small businesses in Kansas City and Overland Park, KS.",
+    "A transparent breakdown of website costs for small businesses.",
   datePublished: "2025-06-24",
   author: {
     "@type": "LocalBusiness",
     name: "BuiltForSmallBiz",
-    areaServed: [
-      { "@type": "City", name: "Kansas City, MO" },
-      { "@type": "City", name: "Kansas City, KS" },
-      { "@type": "City", name: "Overland Park, KS" },
-      { "@type": "City", name: "Olathe, KS" },
-      { "@type": "City", name: "Lenexa, KS" },
-      { "@type": "City", name: "Shawnee, KS" },
-      { "@type": "City", name: "Leawood, KS" },
-      { "@type": "City", name: "Prairie Village, KS" },
-      { "@type": "City", name: "Merriam, KS" },
-      { "@type": "City", name: "Mission, KS" },
-      { "@type": "City", name: "Gardner, KS" },
-      { "@type": "City", name: "Spring Hill, KS" },
-      { "@type": "City", name: "De Soto, KS" },
-      { "@type": "City", name: "Bonner Springs, KS" },
-      { "@type": "City", name: "Independence, MO" },
-      { "@type": "City", name: "Lee's Summit, MO" },
-      { "@type": "City", name: "Blue Springs, MO" },
-      { "@type": "City", name: "Liberty, MO" },
-      { "@type": "City", name: "Gladstone, MO" },
-      { "@type": "City", name: "Raytown, MO" },
-      { "@type": "City", name: "Grandview, MO" },
-      { "@type": "City", name: "Belton, MO" },
-      { "@type": "City", name: "Raymore, MO" },
-      { "@type": "City", name: "North Kansas City, MO" },
-      { "@type": "City", name: "Parkville, MO" },
-    ],
   },
 };
 

@@ -54,7 +54,15 @@
       "Bash(git fetch *)",
       "Bash(git checkout *)",
       "Bash(git merge *)",
-      "Bash(git branch *)"
+      "Bash(git branch *)",
+      "WebFetch(domain:albertdental.com)",
+      "WebFetch(domain:www.google.com)",
+      "Bash(sed -i '' 's/1,750+/873/g; s/1,750\\\\+/873/g' /Users/Eli/Developer/Source/albert-dental/dentist-olathe.html /Users/Eli/Developer/Source/albert-dental/index.html)",
+      "Bash(git -C /Users/Eli/Developer/Source/my-website status --short)",
+      "WebFetch(domain:hbha-pto-rams-cafe.square.site)",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__find",
+      "mcp__Claude_in_Chrome__read_page"
     ]
   }
 }

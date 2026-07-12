@@ -3,14 +3,14 @@ import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "New Business Website in Kansas City",
+  title: "New Business Website",
   description:
-    "Need a website for your new small business? Professional, affordable website design for small businesses in Kansas City and Overland Park, KS. One-time pricing, live in 1–2 weeks.",
+    "Need a website for your new small business? Professional, affordable website design for small businesses. One-time pricing, live in 1–2 weeks.",
   keywords: [
-    "new business website Kansas City",
-    "small business website Overland Park KS",
-    "cheap website design Kansas City",
-    "small business web design Kansas City",
+    "new business website",
+    "small business website design",
+    "cheap website design",
+    "small business web design",
   ],
 };
 

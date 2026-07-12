@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, honest pricing for small business websites in Overland Park & Kansas City. One-time payment, no monthly fees — you own everything.",
+    "Simple, honest pricing for small business websites. One-time payment, no monthly fees — you own everything.",
 };
 
 const plans = [

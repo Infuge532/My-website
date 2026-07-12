@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Web design services for small businesses in Overland Park & Kansas City. Site redesigns, custom builds, mobile-first design, and zero infrastructure hassle.",
+    "Web design services for small businesses. Site redesigns, custom builds, mobile-first design, and zero infrastructure hassle.",
 };
 
 const services = [

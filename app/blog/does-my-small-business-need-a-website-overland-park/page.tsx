@@ -3,55 +3,27 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title:
-    "Does My Small Business in Overland Park Really Need a Website?",
+  title: "Does My Small Business Really Need a Website?",
   description:
-    "Wondering if your Overland Park small business needs a website? Here's the honest answer — and what it actually costs to get one.",
+    "Wondering if your small business needs a website? Here's the honest answer — and what it actually costs to get one.",
   keywords: [
     "does my small business need a website",
-    "small business website Overland Park",
+    "small business website",
     "why small businesses need websites",
-    "Overland Park small business online",
+    "small business online presence",
   ],
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Does My Small Business in Overland Park Really Need a Website?",
+  headline: "Does My Small Business Really Need a Website?",
   description:
-    "Wondering if your Overland Park small business needs a website? Here's the honest answer — and what it actually costs to get one.",
+    "Wondering if your small business needs a website? Here's the honest answer — and what it actually costs to get one.",
   datePublished: "2025-06-24",
   author: {
     "@type": "LocalBusiness",
     name: "BuiltForSmallBiz",
-    areaServed: [
-      { "@type": "City", name: "Overland Park, KS" },
-      { "@type": "City", name: "Kansas City, MO" },
-      { "@type": "City", name: "Kansas City, KS" },
-      { "@type": "City", name: "Olathe, KS" },
-      { "@type": "City", name: "Lenexa, KS" },
-      { "@type": "City", name: "Shawnee, KS" },
-      { "@type": "City", name: "Leawood, KS" },
-      { "@type": "City", name: "Prairie Village, KS" },
-      { "@type": "City", name: "Merriam, KS" },
-      { "@type": "City", name: "Mission, KS" },
-      { "@type": "City", name: "Gardner, KS" },
-      { "@type": "City", name: "Spring Hill, KS" },
-      { "@type": "City", name: "De Soto, KS" },
-      { "@type": "City", name: "Bonner Springs, KS" },
-      { "@type": "City", name: "Independence, MO" },
-      { "@type": "City", name: "Lee's Summit, MO" },
-      { "@type": "City", name: "Blue Springs, MO" },
-      { "@type": "City", name: "Liberty, MO" },
-      { "@type": "City", name: "Gladstone, MO" },
-      { "@type": "City", name: "Raytown, MO" },
-      { "@type": "City", name: "Grandview, MO" },
-      { "@type": "City", name: "Belton, MO" },
-      { "@type": "City", name: "Raymore, MO" },
-      { "@type": "City", name: "North Kansas City, MO" },
-      { "@type": "City", name: "Parkville, MO" },
-    ],
   },
 };
 
