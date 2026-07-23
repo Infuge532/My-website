@@ -1,0 +1,34 @@
+# Allow all standard search engine crawlers
+User-agent: *
+Allow: /
+
+# Block AI training scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+# Allow AI search indexing (appears in ChatGPT search results)
+User-agent: OAISearchBot
+Allow: /
+
+Sitemap: https://www.kswebdesign.com/sitemap.xml

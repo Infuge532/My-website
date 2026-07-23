@@ -1,0 +1,1086 @@
+<meta charset="utf-8">
+<title>Building a Website — Scroll Study</title>
+
+<style>
+:root {
+  --bg: #07070f;
+  --surface: #0d0d1c;
+  --border: #181830;
+  --accent: #00ccff;
+  --accent2: #ff3060;
+  --accent3: #7040ff;
+  --warm: #ff8c30;
+  --text: #ddd9f5;
+  --muted: #4a4870;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Arial, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── HERO ─────────────────────────────── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 72px 72px;
+  overflow: hidden;
+}
+
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease 0.2s forwards;
+}
+
+.hero-title {
+  font-size: clamp(64px, 10vw, 138px);
+  font-weight: 800;
+  line-height: 0.87;
+  letter-spacing: -0.055em;
+  margin-bottom: 40px;
+}
+
+.title-line { display: block; overflow: hidden; }
+
+.title-line span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: slideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.title-line:nth-child(1) span { animation-delay: 0.4s; }
+.title-line:nth-child(2) span { animation-delay: 0.58s; color: var(--accent); }
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 340px;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.05s forwards;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  right: 72px;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeUp 0.6s ease 1.4s forwards, bob 2.2s ease-in-out 2s infinite;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+}
+
+@keyframes slideUp { to { transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* ── SCROLL STAGES ────────────────────── */
+.stage {
+  position: relative;
+  height: 320vh; /* scroll runway per stage */
+}
+.stage[data-stage="color"] {
+  height: 394vh; /* effective scroll = 294vh = 220vh / 0.75, so animation completes at 0.75× speed */
+}
+
+.stage-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.stage-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.stage-copy {
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  padding: 0 0 64px 72px;
+  max-width: 380px;
+}
+
+.stage-num {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.stage-name {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin-bottom: 12px;
+}
+
+.stage-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stage-progress {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 120px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stage-progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* ── FOOTER ────────────────────────────── */
+footer {
+  padding: 48px 72px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+footer p {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+footer .accent-text { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .hero { padding: 0 0 56px 32px; }
+  .stage-copy { padding: 0 24px 48px 32px; }
+  .stage-name { font-size: 30px; }
+  footer { padding: 40px 32px; flex-direction: column; align-items: flex-start; }
+  .scroll-hint { right: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-line span, .hero-eyebrow, .hero-sub, .scroll-hint {
+    animation: none; opacity: 1; transform: none;
+  }
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">A website, built by scrolling</div>
+    <h1 class="hero-title">
+      <span class="title-line"><span>from blank</span></span>
+      <span class="title-line"><span>to launch.</span></span>
+    </h1>
+    <p class="hero-sub">Scroll down and watch a website get built — wireframe, layout, type, color, responsive, ship. Your scroll position drives every frame.</p>
+  </div>
+  <div class="scroll-hint">scroll to build</div>
+</section>
+
+<!-- STAGES -->
+<section class="stage" data-stage="wireframe">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">01 / 06 — scroll to draw</div>
+      <div class="stage-name">Wireframe</div>
+      <div class="stage-desc">Every site starts as lines on a grid. Scroll draws the skeleton — header, hero, columns, footer — stroke by stroke.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<section class="stage" data-stage="blocks">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">02 / 06 — scroll to assemble</div>
+      <div class="stage-name">Layout</div>
+      <div class="stage-desc">Content blocks fly in from every direction and snap into the wireframe's slots, staggered by scroll depth.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<section class="stage" data-stage="type">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">03 / 06 — scroll to write</div>
+      <div class="stage-name">Typography</div>
+      <div class="stage-desc">Headlines and body text pour into the layout. Scroll acts as the typist — text lines fill left to right, top to bottom.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<section class="stage" data-stage="color">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">04 / 06 — scroll to paint</div>
+      <div class="stage-name">Color &amp; Style</div>
+      <div class="stage-desc">A wave of brand color sweeps across the page, filling flat wireframe boxes with gradients, imagery, and depth.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<section class="stage" data-stage="responsive">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">05 / 06 — scroll to resize</div>
+      <div class="stage-name">Responsive</div>
+      <div class="stage-desc">The desktop layout compresses into a phone. Columns stack, nav collapses — the same site reflowing as you scroll.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<section class="stage" data-stage="launch">
+  <div class="stage-sticky">
+    <canvas class="stage-canvas"></canvas>
+    <div class="stage-copy">
+      <div class="stage-num">06 / 06 — scroll to ship</div>
+      <div class="stage-name">Launch</div>
+      <div class="stage-desc">Deploy progress fills, the site lifts off, and a burst of particles marks the moment it goes live.</div>
+    </div>
+    <div class="stage-progress"><i></i></div>
+  </div>
+</section>
+
+<footer>
+  <p><span class="accent-text">From Blank to Launch</span> — Scroll-driven canvas</p>
+  <p>No libraries · Scroll position is the timeline</p>
+</footer>
+
+<script>
+// ── UTILITIES ────────────────────────────────────────────────────
+const TAU = Math.PI * 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+// map progress p into a sub-range [a,b] → 0..1
+const seg = (p, a, b) => clamp((p - a) / (b - a), 0, 1);
+
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+const easeOutBack = t => { const c = 1.70158; return 1 + (c+1)*Math.pow(t-1,3) + c*Math.pow(t-1,2); };
+
+const ACCENT = '#00ccff', ACCENT2 = '#ff3060', ACCENT3 = '#7040ff', WARM = '#ff8c30';
+const BG = '#07070f', MUTED = '#4a4870';
+
+function hexRgb(hex) {
+  return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
+}
+function rgba(hex, a) { const [r,g,b] = hexRgb(hex); return `rgba(${r},${g},${b},${a})`; }
+
+function setupCanvas(canvas) {
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth, h = canvas.offsetHeight;
+  canvas.width = Math.round(w * dpr);
+  canvas.height = Math.round(h * dpr);
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return { ctx, w, h };
+}
+
+// ── BROWSER FRAME + PAGE LAYOUT GEOMETRY ─────────────────────────
+// Shared "website" geometry so every stage draws the same site.
+function pageRect(w, h) {
+  const pw = Math.min(w * 0.52, 640);
+  const ph = Math.min(h * 0.78, pw * 0.72);
+  const px = (w - pw) / 2;
+  const py = (h - ph) / 2;
+  return { px, py, pw, ph };
+}
+
+// Layout slots inside the page (relative units 0..1)
+const SLOTS = [
+  { id:'nav',    x:0.00, y:0.00, w:1.00, h:0.10 },
+  { id:'hero',   x:0.00, y:0.12, w:0.62, h:0.34 },
+  { id:'img',    x:0.66, y:0.12, w:0.34, h:0.34 },
+  { id:'col1',   x:0.00, y:0.50, w:0.30, h:0.26 },
+  { id:'col2',   x:0.35, y:0.50, w:0.30, h:0.26 },
+  { id:'col3',   x:0.70, y:0.50, w:0.30, h:0.26 },
+  { id:'cta',    x:0.20, y:0.80, w:0.60, h:0.09 },
+  { id:'footer', x:0.00, y:0.93, w:1.00, h:0.07 },
+];
+
+function slotPx(s, r) {
+  return { x: r.px + s.x*r.pw, y: r.py + s.y*r.ph, w: s.w*r.pw, h: s.h*r.ph };
+}
+
+function drawBrowserChrome(ctx, r, alpha) {
+  const barH = 26;
+  ctx.strokeStyle = rgba(ACCENT, 0.18 * alpha);
+  ctx.lineWidth = 1;
+  ctx.strokeRect(r.px - 12, r.py - barH - 12, r.pw + 24, r.ph + barH + 24);
+  // toolbar line
+  ctx.beginPath();
+  ctx.moveTo(r.px - 12, r.py - 12);
+  ctx.lineTo(r.px + r.pw + 12, r.py - 12);
+  ctx.stroke();
+  // traffic lights
+  [ACCENT2, WARM, ACCENT].forEach((c, i) => {
+    ctx.beginPath();
+    ctx.arc(r.px + 2 + i * 14, r.py - barH/2 - 12 + 7, 3.5, 0, TAU);
+    ctx.fillStyle = rgba(c, 0.6 * alpha);
+    ctx.fill();
+  });
+  // url bar
+  ctx.strokeStyle = rgba(ACCENT, 0.12 * alpha);
+  ctx.strokeRect(r.px + 60, r.py - barH - 4, r.pw - 72, 14);
+  ctx.fillStyle = rgba(ACCENT, 0.35 * alpha);
+  ctx.font = '8px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText('https://yoursite.com', r.px + 68, r.py - barH + 6);
+}
+
+// ── STAGE DRAW FUNCTIONS (p = scroll progress 0..1) ──────────────
+
+// 01 WIREFRAME — strokes draw in
+function drawWireframe(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+  const r = pageRect(w, h);
+
+  // faint grid appears first
+  const gridA = seg(p, 0, 0.15);
+  ctx.strokeStyle = rgba(ACCENT, 0.05 * gridA);
+  ctx.lineWidth = 1;
+  const g = 32;
+  for (let x = r.px; x <= r.px + r.pw; x += g) {
+    ctx.beginPath(); ctx.moveTo(x, r.py); ctx.lineTo(x, r.py + r.ph); ctx.stroke();
+  }
+  for (let y = r.py; y <= r.py + r.ph; y += g) {
+    ctx.beginPath(); ctx.moveTo(r.px, y); ctx.lineTo(r.px + r.pw, y); ctx.stroke();
+  }
+
+  drawBrowserChrome(ctx, r, seg(p, 0.05, 0.25));
+
+  // each slot's outline draws in sequence
+  SLOTS.forEach((s, i) => {
+    const t0 = 0.15 + (i / SLOTS.length) * 0.75;
+    const lt = easeInOut(seg(p, t0, t0 + 0.16));
+    if (lt <= 0) return;
+    const b = slotPx(s, r);
+    const perim = 2 * (b.w + b.h);
+    ctx.strokeStyle = rgba(ACCENT, 0.7);
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = ACCENT; ctx.shadowBlur = 6;
+    ctx.setLineDash([perim]);
+    ctx.lineDashOffset = perim * (1 - lt);
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+    ctx.setLineDash([]);
+    ctx.shadowBlur = 0;
+    // pen dot at draw head
+    if (lt < 1) {
+      const d = perim * lt;
+      let hx, hy;
+      if (d < b.w) { hx = b.x + d; hy = b.y; }
+      else if (d < b.w + b.h) { hx = b.x + b.w; hy = b.y + (d - b.w); }
+      else if (d < 2*b.w + b.h) { hx = b.x + b.w - (d - b.w - b.h); hy = b.y + b.h; }
+      else { hx = b.x; hy = b.y + b.h - (d - 2*b.w - b.h); }
+      ctx.beginPath(); ctx.arc(hx, hy, 3.5, 0, TAU);
+      ctx.shadowColor = ACCENT; ctx.shadowBlur = 12;
+      ctx.fillStyle = ACCENT; ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  });
+}
+
+// 02 LAYOUT — blocks fly in and snap
+const BLOCK_DIRS = SLOTS.map((s, i) => {
+  const angle = (i / SLOTS.length) * TAU + 0.7;
+  return { dx: Math.cos(angle), dy: Math.sin(angle) };
+});
+
+function drawBlocks(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+  const r = pageRect(w, h);
+  drawBrowserChrome(ctx, r, 1);
+
+  // ghost wireframe stays
+  SLOTS.forEach(s => {
+    const b = slotPx(s, r);
+    ctx.strokeStyle = rgba(ACCENT, 0.1);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+  });
+
+  SLOTS.forEach((s, i) => {
+    const t0 = (i / SLOTS.length) * 0.72;
+    const lt = seg(p, t0, t0 + 0.28);
+    if (lt <= 0) return;
+    const e = easeOutBack(lt);
+    const b = slotPx(s, r);
+    const dir = BLOCK_DIRS[i];
+    const off = (1 - e) * Math.max(w, h) * 0.55;
+    const x = b.x + dir.dx * off;
+    const y = b.y + dir.dy * off;
+    const rot = (1 - e) * 0.3 * (i % 2 ? 1 : -1);
+
+    ctx.save();
+    ctx.translate(x + b.w/2, y + b.h/2);
+    ctx.rotate(rot);
+    ctx.fillStyle = rgba(ACCENT, 0.10 + 0.08 * lt);
+    ctx.fillRect(-b.w/2, -b.h/2, b.w, b.h);
+    ctx.strokeStyle = rgba(ACCENT, 0.55);
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = ACCENT; ctx.shadowBlur = lt >= 1 ? 0 : 10;
+    ctx.strokeRect(-b.w/2, -b.h/2, b.w, b.h);
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    // snap flash
+    if (lt > 0.92 && lt < 1) {
+      ctx.strokeStyle = rgba('#ffffff', (1 - (lt - 0.92)/0.08) * 0.5);
+      ctx.strokeRect(b.x - 3, b.y - 3, b.w + 6, b.h + 6);
+    }
+  });
+}
+
+// 03 TYPOGRAPHY — text lines fill in
+function textLinesFor(s) {
+  // returns array of {rx, ry, rw, weight} relative to slot
+  switch (s.id) {
+    case 'nav':    return [{rx:0.03,ry:0.35,rw:0.14,wt:2},{rx:0.62,ry:0.4,rw:0.08,wt:1},{rx:0.73,ry:0.4,rw:0.08,wt:1},{rx:0.84,ry:0.4,rw:0.08,wt:1}];
+    case 'hero':   return [{rx:0.06,ry:0.18,rw:0.75,wt:4},{rx:0.06,ry:0.40,rw:0.55,wt:4},{rx:0.06,ry:0.62,rw:0.8,wt:1},{rx:0.06,ry:0.74,rw:0.65,wt:1}];
+    case 'img':    return [];
+    case 'col1': case 'col2': case 'col3':
+      return [{rx:0.08,ry:0.14,rw:0.5,wt:2},{rx:0.08,ry:0.4,rw:0.84,wt:1},{rx:0.08,ry:0.56,rw:0.84,wt:1},{rx:0.08,ry:0.72,rw:0.6,wt:1}];
+    case 'cta':    return [{rx:0.3,ry:0.35,rw:0.4,wt:2}];
+    case 'footer': return [{rx:0.03,ry:0.35,rw:0.2,wt:1},{rx:0.75,ry:0.35,rw:0.2,wt:1}];
+    default: return [];
+  }
+}
+
+function drawType(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+  const r = pageRect(w, h);
+  drawBrowserChrome(ctx, r, 1);
+
+  // settled blocks
+  SLOTS.forEach(s => {
+    const b = slotPx(s, r);
+    ctx.fillStyle = rgba(ACCENT, 0.07);
+    ctx.fillRect(b.x, b.y, b.w, b.h);
+    ctx.strokeStyle = rgba(ACCENT, 0.25);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+  });
+
+  // image placeholder crosshatch
+  const imgB = slotPx(SLOTS[2], r);
+  ctx.strokeStyle = rgba(ACCENT, 0.15);
+  ctx.beginPath();
+  ctx.moveTo(imgB.x, imgB.y); ctx.lineTo(imgB.x + imgB.w, imgB.y + imgB.h);
+  ctx.moveTo(imgB.x + imgB.w, imgB.y); ctx.lineTo(imgB.x, imgB.y + imgB.h);
+  ctx.stroke();
+
+  // gather all lines with global order, fill by scroll
+  const allLines = [];
+  SLOTS.forEach(s => {
+    const b = slotPx(s, r);
+    textLinesFor(s).forEach(l => allLines.push({ b, l }));
+  });
+
+  allLines.forEach((item, i) => {
+    const t0 = (i / allLines.length) * 0.85;
+    const lt = easeOut(seg(p, t0, t0 + 0.12));
+    if (lt <= 0) return;
+    const { b, l } = item;
+    const lh = l.wt * 3 + 2;
+    const x = b.x + l.rx * b.w;
+    const y = b.y + l.ry * b.h;
+    const fullW = l.rw * b.w;
+
+    ctx.fillStyle = l.wt >= 4 ? rgba(ACCENT, 0.85) : l.wt >= 2 ? rgba(ACCENT, 0.5) : rgba(ACCENT, 0.25);
+    ctx.fillRect(x, y, fullW * lt, lh);
+
+    // typing cursor at the writing head
+    if (lt < 1) {
+      ctx.fillStyle = rgba('#ffffff', 0.8);
+      ctx.fillRect(x + fullW * lt + 2, y - 1, 2, lh + 2);
+    }
+  });
+}
+
+// 04 COLOR — palette pour + ink bleed
+const COLOR_SWATCHES   = [ACCENT, ACCENT3, ACCENT2, WARM];
+const COLOR_ASSIGN_IDX = [1, 0, 2, 1, 0, 3, 2, 1]; // swatch index per SLOT
+
+// Drip stagger: when each slot's drip starts (in progress 0..1)
+const DRIP_STARTS = [0.10, 0.14, 0.20, 0.28, 0.34, 0.40, 0.50, 0.58];
+const DRIP_DUR    = 0.18;
+
+function drawColor(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+  const r = pageRect(w, h);
+  drawBrowserChrome(ctx, r, 1);
+
+  // Wireframe base
+  SLOTS.forEach(s => {
+    const b = slotPx(s, r);
+    ctx.fillStyle = rgba(ACCENT, 0.05);
+    ctx.fillRect(b.x, b.y, b.w, b.h);
+    ctx.strokeStyle = rgba(ACCENT, 0.18);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+  });
+  // img crosshatch
+  const imgB = slotPx(SLOTS[2], r);
+  ctx.strokeStyle = rgba(ACCENT, 0.1);
+  ctx.beginPath();
+  ctx.moveTo(imgB.x, imgB.y); ctx.lineTo(imgB.x + imgB.w, imgB.y + imgB.h);
+  ctx.moveTo(imgB.x + imgB.w, imgB.y); ctx.lineTo(imgB.x, imgB.y + imgB.h);
+  ctx.stroke();
+
+  // ── PHASE 1: swatches appear above the page (p 0 → 0.15) ──
+  const swatchW   = Math.min(r.pw * 0.075, 32);
+  const swatchGap = swatchW * 0.25;
+  const totalSW   = COLOR_SWATCHES.length * (swatchW + swatchGap) - swatchGap;
+  const swatchX0  = r.px + (r.pw - totalSW) / 2;
+  const swatchY   = r.py - swatchW - 20;
+
+  COLOR_SWATCHES.forEach((c, i) => {
+    const lt = easeOut(seg(p, i * 0.025, i * 0.025 + 0.15));
+    if (lt <= 0) return;
+    const sx = swatchX0 + i * (swatchW + swatchGap);
+    const [rr,gg,bb] = hexRgb(c);
+    ctx.shadowColor = c; ctx.shadowBlur = lt * 10;
+    ctx.fillStyle = `rgba(${rr},${gg},${bb},${lt * 0.92})`;
+    ctx.fillRect(sx, swatchY, swatchW * lt, swatchW);
+    ctx.shadowBlur = 0;
+    if (lt > 0.75) {
+      ctx.fillStyle = `rgba(${rr},${gg},${bb},${(lt - 0.75) / 0.25 * 0.5})`;
+      ctx.font = '7px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(c, sx + swatchW / 2, swatchY + swatchW + 10);
+    }
+  });
+  ctx.textAlign = 'left';
+
+  // ── PHASE 2+3: drip falls → ink bleeds from landing point ──
+  SLOTS.forEach((s, i) => {
+    const b = slotPx(s, r);
+    const swatchIdx = COLOR_ASSIGN_IDX[i];
+    const c         = COLOR_SWATCHES[swatchIdx];
+    const [rr,gg,bb] = hexRgb(c);
+
+    const srcX = swatchX0 + swatchIdx * (swatchW + swatchGap) + swatchW / 2;
+    const srcY = swatchY + swatchW;
+    const dstX = b.x + b.w * 0.5;
+    const dstY = b.y;
+
+    const t0   = DRIP_STARTS[i];
+    const t1   = t0 + DRIP_DUR;
+    const dripP = seg(p, t0, t1);
+
+    // Bezier control points for the drip arc
+    const cpx1 = srcX, cpy1 = srcY + (dstY - srcY) * 0.4;
+    const cpx2 = dstX, cpy2 = srcY + (dstY - srcY) * 0.65;
+
+    function bezierPt(t2) {
+      const u = 1 - t2;
+      return {
+        x: u*u*u*srcX + 3*u*u*t2*cpx1 + 3*u*t2*t2*cpx2 + t2*t2*t2*dstX,
+        y: u*u*u*srcY + 3*u*u*t2*cpy1 + 3*u*t2*t2*cpy2 + t2*t2*t2*dstY,
+      };
+    }
+
+    // Draw drip stroke (only while in-flight), fading out on impact
+    if (dripP > 0 && dripP < 1) {
+      // Fade the line as it nears the box (last 25% of travel)
+      const fadeIn  = Math.min(dripP / 0.1, 1);
+      const fadeOut = dripP > 0.75 ? 1 - (dripP - 0.75) / 0.25 : 1;
+      const lineAlpha = 0.7 * fadeIn * fadeOut;
+
+      ctx.beginPath();
+      ctx.moveTo(srcX, srcY);
+      const steps = 32;
+      for (let k = 1; k <= Math.round(dripP * steps); k++) {
+        const pt = bezierPt(k / steps);
+        ctx.lineTo(pt.x, pt.y);
+      }
+      ctx.strokeStyle = `rgba(${rr},${gg},${bb},${lineAlpha})`;
+      ctx.lineWidth = 1.8;
+      ctx.shadowColor = c; ctx.shadowBlur = lineAlpha * 10;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // drip head — also fades on impact
+      const head = bezierPt(dripP);
+      ctx.beginPath(); ctx.arc(head.x, head.y, 3.5, 0, TAU);
+      ctx.fillStyle = `rgba(${rr},${gg},${bb},${0.95 * fadeOut})`;
+      ctx.shadowColor = c; ctx.shadowBlur = 14 * fadeOut;
+      ctx.fill(); ctx.shadowBlur = 0;
+    }
+
+    // Dust particles + line explosion at impact
+    const dustStart = t1 - DRIP_DUR * 0.12;
+    if (p >= dustStart) {
+      const dustP = Math.min((p - dustStart) / 0.22, 1);
+      const eP    = easeOut(dustP);
+
+      // ── large dust clouds ──
+      const NPART = 18;
+      for (let k = 0; k < NPART; k++) {
+        const seed  = (i * 97 + k * 31 + 7) % 100;
+        const angle = (seed / 100) * TAU + k * (TAU / NPART);
+        const speed = 0.5 + (seed % 50) / 100;
+        const size  = 4 + (seed % 60) / 10;   // 4–10 px
+        const dist  = (32 + (seed % 36)) * speed;
+
+        const px2   = dstX + Math.cos(angle) * dist * eP;
+        const py2   = dstY + Math.sin(angle) * dist * eP;
+        const alpha = (1 - dustP) * (1 - dustP) * 0.9;
+        if (alpha < 0.01) continue;
+
+        ctx.beginPath();
+        ctx.arc(px2, py2, size * (1 - dustP * 0.6), 0, TAU);
+        ctx.fillStyle = `rgba(${rr},${gg},${bb},${alpha})`;
+        ctx.shadowColor = c; ctx.shadowBlur = size * 5;
+        ctx.fill(); ctx.shadowBlur = 0;
+      }
+
+      // ── line fragment explosion: sample points along the bezier and fling them ──
+      const NFRAGS = 16;
+      for (let k = 0; k < NFRAGS; k++) {
+        const t2    = k / NFRAGS;
+        const pt    = bezierPt(t2);
+        const seed  = (i * 53 + k * 41 + 13) % 100;
+        // fling direction: roughly perpendicular to the line + some spread
+        const baseAngle = Math.atan2(dstY - srcY, dstX - srcX);
+        const spread = ((seed / 100) - 0.5) * Math.PI * 1.8; // ±162° spread
+        const angle  = baseAngle + Math.PI * 0.5 + spread;
+        const speed  = 8 + (seed % 20);
+        const size   = 2 + (seed % 30) / 10;
+
+        const px2    = pt.x + Math.cos(angle) * speed * eP * 12;
+        const py2    = pt.y + Math.sin(angle) * speed * eP * 12;
+        const alpha  = (1 - dustP) * (1 - dustP) * 0.8;
+        if (alpha < 0.01) continue;
+
+        ctx.beginPath();
+        ctx.arc(px2, py2, size * (1 - dustP * 0.7), 0, TAU);
+        ctx.fillStyle = `rgba(${rr},${gg},${bb},${alpha})`;
+        ctx.shadowColor = c; ctx.shadowBlur = size * 6;
+        ctx.fill(); ctx.shadowBlur = 0;
+      }
+    }
+
+    // Ink bleed starts as drip arrives, spreads outward
+    if (p >= t1 * 0.88) {
+      const bleedP = easeOut(seg(p, t1 * 0.88, Math.min(0.98, t1 + 0.30)));
+
+      // Seed at top-center where the drip lands
+      const seedX = dstX, seedY = dstY + 6;
+      const maxR  = Math.sqrt(b.w * b.w + b.h * b.h) * 0.78;
+      const bleedR = maxR * bleedP;
+
+      ctx.save();
+      ctx.beginPath(); ctx.rect(b.x, b.y, b.w, b.h); ctx.clip();
+
+      // Main radial fill
+      const fillGrad = ctx.createRadialGradient(seedX, seedY, 0, seedX, seedY, bleedR);
+      fillGrad.addColorStop(0,   `rgba(${rr},${gg},${bb},0.60)`);
+      fillGrad.addColorStop(0.55,`rgba(${rr},${gg},${bb},0.35)`);
+      fillGrad.addColorStop(1,   `rgba(${rr},${gg},${bb},0.00)`);
+      ctx.fillStyle = fillGrad;
+      ctx.fillRect(b.x, b.y, b.w, b.h);
+
+      // Glow ring at expanding edge
+      if (bleedP < 0.92) {
+        const ringGrad = ctx.createRadialGradient(seedX, seedY, bleedR * 0.78, seedX, seedY, bleedR);
+        ringGrad.addColorStop(0, `rgba(${rr},${gg},${bb},0.00)`);
+        ringGrad.addColorStop(1, `rgba(${rr},${gg},${bb},0.50)`);
+        ctx.fillStyle = ringGrad;
+        ctx.fillRect(b.x, b.y, b.w, b.h);
+        ctx.shadowColor = c; ctx.shadowBlur = 8;
+        ctx.beginPath(); ctx.arc(seedX, seedY, bleedR, 0, TAU);
+        ctx.strokeStyle = `rgba(${rr},${gg},${bb},0.30)`;
+        ctx.lineWidth = 1.5; ctx.stroke(); ctx.shadowBlur = 0;
+      }
+
+      ctx.restore();
+    }
+  });
+}
+
+// 05 RESPONSIVE — desktop morphs to phone
+function drawResponsive(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+  const m = easeInOut(seg(p, 0.1, 0.9));
+
+  // interpolate frame from desktop to phone
+  const d = pageRect(w, h);
+  const phoneW = Math.min(w * 0.18, 210);
+  const phoneH = phoneW * 2.05;
+  const ph = { px: (w - phoneW)/2, py: (h - phoneH)/2, pw: phoneW, ph: phoneH };
+
+  const f = {
+    px: lerp(d.px, ph.px, m),
+    py: lerp(d.py, ph.py, m),
+    pw: lerp(d.pw, ph.pw, m),
+    ph: lerp(d.ph, ph.ph, m),
+  };
+
+  // frame: browser chrome fades out, phone notch fades in
+  drawBrowserChrome(ctx, f, 1 - m);
+  const cornerR = m * 18;
+  ctx.strokeStyle = rgba(ACCENT, 0.3 + m * 0.3);
+  ctx.lineWidth = 1.5;
+  roundRect(ctx, f.px - 8, f.py - 8, f.pw + 16, f.ph + 16, cornerR);
+  ctx.stroke();
+  if (m > 0.5) {
+    // notch
+    const na = (m - 0.5) * 2;
+    ctx.fillStyle = rgba(ACCENT, 0.4 * na);
+    roundRect(ctx, f.px + f.pw/2 - 18, f.py - 4, 36, 5, 2.5);
+    ctx.fill();
+  }
+
+  // layout slots: desktop positions → stacked mobile positions
+  const mobileSlots = [
+    { id:'nav',    x:0.00, y:0.000, w:1.00, h:0.06 },
+    { id:'hero',   x:0.00, y:0.075, w:1.00, h:0.16 },
+    { id:'img',    x:0.00, y:0.25,  w:1.00, h:0.14 },
+    { id:'col1',   x:0.00, y:0.405, w:1.00, h:0.12 },
+    { id:'col2',   x:0.00, y:0.54,  w:1.00, h:0.12 },
+    { id:'col3',   x:0.00, y:0.675, w:1.00, h:0.12 },
+    { id:'cta',    x:0.10, y:0.81,  w:0.80, h:0.07 },
+    { id:'footer', x:0.00, y:0.90,  w:1.00, h:0.05 },
+  ];
+  const palette = { nav: ACCENT3, hero: ACCENT, img: ACCENT2, col1: ACCENT3, col2: ACCENT, col3: WARM, cta: ACCENT2, footer: ACCENT3 };
+
+  SLOTS.forEach((s, i) => {
+    const ms = mobileSlots[i];
+    // per-block stagger on the morph
+    const bm = easeInOut(seg(m, i * 0.04, i * 0.04 + 0.72));
+    const cur = {
+      x: lerp(s.x, ms.x, bm), y: lerp(s.y, ms.y, bm),
+      w: lerp(s.w, ms.w, bm), h: lerp(s.h, ms.h, bm),
+    };
+    const b = { x: f.px + cur.x * f.pw, y: f.py + cur.y * f.ph, w: cur.w * f.pw, h: cur.h * f.ph };
+    const c = palette[s.id] || ACCENT;
+    const [rr, gg, bb] = hexRgb(c);
+    const grad = ctx.createLinearGradient(b.x, b.y, b.x, b.y + b.h);
+    grad.addColorStop(0, `rgba(${rr},${gg},${bb},0.45)`);
+    grad.addColorStop(1, `rgba(${rr},${gg},${bb},0.15)`);
+    ctx.fillStyle = grad;
+    ctx.fillRect(b.x, b.y, b.w, b.h);
+    ctx.strokeStyle = rgba(c, 0.5);
+    ctx.lineWidth = 1;
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+  });
+
+  // label
+  ctx.fillStyle = rgba(ACCENT, 0.4);
+  ctx.font = '10px monospace';
+  ctx.textAlign = 'center';
+  const label = m < 0.5 ? `${Math.round(lerp(1280, 375, m))}px — desktop` : `${Math.round(lerp(1280, 375, m))}px — mobile`;
+  ctx.fillText(label, w / 2, f.py + f.ph + 34);
+  ctx.textAlign = 'left';
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  r = Math.min(r, w/2, h/2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+// 06 LAUNCH — deploy bar, liftoff, particle burst
+const BURST = Array.from({ length: 90 }, (_, i) => {
+  const a = (i / 90) * TAU + Math.sin(i * 13.7) * 0.3;
+  return {
+    angle: a,
+    speed: 0.5 + Math.abs(Math.sin(i * 7.1)) * 0.9,
+    size: 1 + Math.abs(Math.sin(i * 3.3)) * 2.5,
+    color: [ACCENT, ACCENT2, ACCENT3, WARM, '#ffffff'][i % 5],
+  };
+});
+
+function drawLaunch(ctx, w, h, p) {
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
+
+  const deployT = seg(p, 0, 0.4);       // progress bar fills
+  const liftT   = easeInOut(seg(p, 0.4, 0.75)); // site lifts
+  const burstT  = seg(p, 0.72, 1);      // particles
+
+  // mini site card
+  const cw = Math.min(w * 0.3, 320);
+  const chh = cw * 0.68;
+  const cx = (w - cw) / 2;
+  const baseY = (h - chh) / 2 + 20;
+  const cy = baseY - liftT * (h * 0.18);
+  const wobble = liftT > 0 && liftT < 1 ? Math.sin(p * 90) * 2 * (1 - liftT) : 0;
+
+  ctx.save();
+  ctx.translate(cx + cw/2 + wobble, cy + chh/2);
+  const scale = 1 + liftT * 0.06;
+  ctx.scale(scale, scale);
+  ctx.translate(-(cx + cw/2), -(cy + chh/2));
+
+  // glow under the card grows with lift
+  ctx.shadowColor = ACCENT;
+  ctx.shadowBlur = 10 + liftT * 30;
+  ctx.fillStyle = rgba('#0d0d1c', 1);
+  roundRect(ctx, cx, cy, cw, chh, 8);
+  ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.strokeStyle = rgba(ACCENT, 0.5 + liftT * 0.4);
+  ctx.lineWidth = 1.5;
+  roundRect(ctx, cx, cy, cw, chh, 8);
+  ctx.stroke();
+
+  // mini layout inside
+  const mini = [
+    { x:0.06, y:0.08, w:0.88, h:0.10, c:ACCENT3 },
+    { x:0.06, y:0.24, w:0.55, h:0.30, c:ACCENT },
+    { x:0.65, y:0.24, w:0.29, h:0.30, c:ACCENT2 },
+    { x:0.06, y:0.60, w:0.26, h:0.24, c:ACCENT3 },
+    { x:0.37, y:0.60, w:0.26, h:0.24, c:ACCENT },
+    { x:0.68, y:0.60, w:0.26, h:0.24, c:WARM },
+  ];
+  mini.forEach(mb => {
+    ctx.fillStyle = rgba(mb.c, 0.35);
+    ctx.fillRect(cx + mb.x*cw, cy + mb.y*chh, mb.w*cw, mb.h*chh);
+  });
+  ctx.restore();
+
+  // exhaust while lifting
+  if (liftT > 0 && liftT < 1) {
+    for (let i = 0; i < 12; i++) {
+      const ex = cx + cw * (0.3 + Math.abs(Math.sin(i * 5.1)) * 0.4) + wobble;
+      const ey = cy + chh + 6 + ((p * 900 + i * 37) % 60);
+      const ea = (1 - ((p * 900 + i * 37) % 60) / 60) * 0.5 * liftT;
+      ctx.beginPath();
+      ctx.arc(ex, ey, 2 + Math.sin(i) * 1, 0, TAU);
+      ctx.fillStyle = rgba(i % 2 ? ACCENT : WARM, ea);
+      ctx.fill();
+    }
+  }
+
+  // deploy bar
+  const barW = Math.min(w * 0.26, 280);
+  const barX = (w - barW) / 2;
+  const barY = baseY + chh + 60;
+  if (deployT < 1) {
+    ctx.strokeStyle = rgba(ACCENT, 0.25);
+    ctx.lineWidth = 1;
+    roundRect(ctx, barX, barY, barW, 8, 4);
+    ctx.stroke();
+    ctx.fillStyle = rgba(ACCENT, 0.8);
+    roundRect(ctx, barX, barY, Math.max(8, barW * deployT), 8, 4);
+    ctx.fill();
+    ctx.fillStyle = rgba(ACCENT, 0.5);
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`deploying… ${Math.round(deployT * 100)}%`, w/2, barY + 28);
+  } else if (burstT < 0.15) {
+    ctx.fillStyle = rgba(ACCENT, 0.8);
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('✓ deployed', w/2, barY + 6);
+  }
+
+  // particle burst
+  if (burstT > 0) {
+    const bx = w / 2, by = cy + chh / 2;
+    const e = easeOut(burstT);
+    BURST.forEach(pt => {
+      const dist = e * pt.speed * Math.min(w, h) * 0.5;
+      const px = bx + Math.cos(pt.angle) * dist;
+      const py = by + Math.sin(pt.angle) * dist + e * e * 40; // slight gravity
+      const a = (1 - burstT) * 0.9;
+      if (a <= 0) return;
+      ctx.beginPath();
+      ctx.arc(px, py, pt.size * (1 - burstT * 0.5), 0, TAU);
+      ctx.fillStyle = rgba(pt.color, a);
+      ctx.fill();
+    });
+    // LIVE text
+    if (burstT > 0.25) {
+      const la = seg(burstT, 0.25, 0.5);
+      ctx.fillStyle = rgba('#ffffff', la);
+      ctx.font = `800 ${Math.round(28 + la * 8)}px 'Helvetica Neue', sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.shadowColor = ACCENT; ctx.shadowBlur = 20;
+      ctx.fillText('YOU\'RE LIVE', w/2, baseY + chh + 46);
+      ctx.shadowBlur = 0;
+    }
+  }
+  ctx.textAlign = 'left';
+}
+
+// ── HERO CANVAS (ambient dot field) ──────────────────────────────
+(function () {
+  const canvas = document.getElementById('hero-canvas');
+  const dpr = window.devicePixelRatio || 1;
+  const mouse = { x: -9999, y: -9999 };
+
+  function resize() {
+    canvas.width = Math.round(canvas.offsetWidth * dpr);
+    canvas.height = Math.round(canvas.offsetHeight * dpr);
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+
+  let t0 = null;
+  function tick(ts) {
+    if (!t0) t0 = ts;
+    const t = (ts - t0) / 1000;
+    const w = canvas.width / dpr, h = canvas.height / dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    const gap = 46;
+    const cols = Math.ceil(w / gap) + 2, rows = Math.ceil(h / gap) + 2;
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        const bx = (i - 0.5) * gap, by = (j - 0.5) * gap;
+        const wave = Math.sin(i * 0.28 + t * 1.1) * Math.cos(j * 0.32 + t * 0.85) * 9;
+        let x = bx + wave, y = by + wave * 0.5;
+        const dx = bx - mouse.x, dy = by - mouse.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        const repel = Math.max(0, 1 - dist / 130);
+        x -= dx * repel * 0.45; y -= dy * repel * 0.45;
+        const bright = (Math.sin(i * 0.25 + j * 0.18 + t * 1.3) + 1) / 2;
+        ctx.beginPath();
+        ctx.arc(x, y, lerp(1.2, 2.2, bright) + repel * 1.5, 0, TAU);
+        ctx.fillStyle = rgba(ACCENT, lerp(0.06, 0.3, bright) + repel * 0.45);
+        ctx.fill();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// ── SCROLL ENGINE ────────────────────────────────────────────────
+const stageFns = {
+  wireframe: drawWireframe,
+  blocks: drawBlocks,
+  type: drawType,
+  color: drawColor,
+  responsive: drawResponsive,
+  launch: drawLaunch,
+};
+
+const stages = [...document.querySelectorAll('.stage')].map(el => {
+  const canvas = el.querySelector('.stage-canvas');
+  const bar = el.querySelector('.stage-progress i');
+  return { el, canvas, bar, fn: stageFns[el.dataset.stage], ctx: null, w: 0, h: 0, lastP: -1 };
+});
+
+function sizeStages() {
+  stages.forEach(s => {
+    const { ctx, w, h } = setupCanvas(s.canvas);
+    s.ctx = ctx; s.w = w; s.h = h; s.lastP = -1;
+  });
+}
+sizeStages();
+window.addEventListener('resize', () => { sizeStages(); render(); }, { passive: true });
+
+// smooth the scroll value slightly for buttery scrubbing
+let targetPs = stages.map(() => 0);
+let currentPs = stages.map(() => 0);
+
+function computeProgress() {
+  const vh = window.innerHeight;
+  stages.forEach((s, i) => {
+    const rect = s.el.getBoundingClientRect();
+    // progress: 0 when section top hits viewport top, 1 when bottom leaves
+    const total = rect.height - vh;
+    targetPs[i] = clamp(-rect.top / total, 0, 1);
+  });
+}
+
+function render() {
+  stages.forEach((s, i) => {
+    const p = currentPs[i];
+    if (Math.abs(p - s.lastP) < 0.0005 && !(s.el.dataset.stage === 'launch' && p > 0.3)) return;
+    // only draw if section is near viewport
+    const rect = s.el.getBoundingClientRect();
+    if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
+    s.fn(s.ctx, s.w, s.h, p);
+    s.lastP = p;
+    if (s.bar) s.bar.style.transform = `scaleY(${p})`;
+  });
+}
+
+function loop() {
+  computeProgress();
+  let dirty = false;
+  currentPs = currentPs.map((c, i) => {
+    const next = lerp(c, targetPs[i], 0.18);
+    if (Math.abs(next - c) > 0.0001) dirty = true;
+    return next;
+  });
+  render();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>

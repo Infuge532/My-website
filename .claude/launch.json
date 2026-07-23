@@ -7,6 +7,12 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "demo-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8377", "--directory", "/private/tmp/claude-502/-Users-Eli-Developer-Source-my-website/9c390d15-5203-49ce-877f-3f8f545b1509/scratchpad"],
+      "port": 8377
     }
   ]
 }

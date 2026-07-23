@@ -19,6 +19,15 @@ const reviews = [
     image: "/reviews/Screen Shot 2026-07-11 at 1.47.55 PM.png",
     url: "https://bluhawkhoa.org",
   },
+  {
+    name: "John C.",
+    business: "Second Chance Slabs — Owner",
+    rating: 5,
+    text: "Eli nailed the vision for Second Chance Slabs. The site perfectly captures the warmth and craftsmanship behind our walnut tables — it looks stunning and has made it so much easier for customers to find us and commission a piece. Professional, creative, and genuinely cares about the final product.",
+    image: "/reviews/second-chance-slabs.png",
+    url: "https://secondchanceslabs.com",
+    metrics: ["5★ review", "Brand-new site", "He owns everything"],
+  },
 ];
 
 export function Reviews() {
